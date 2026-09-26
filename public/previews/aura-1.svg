@@ -1,0 +1,43 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="auraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="50%" stop-color="#121217"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="auraGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#auraBg)"/>
+  
+  <!-- Minimalist grid dots -->
+  <circle cx="100" cy="80" r="1.5" fill="rgba(255, 255, 255, 0.15)"/>
+  <circle cx="400" cy="80" r="1.5" fill="rgba(255, 255, 255, 0.15)"/>
+  <circle cx="700" cy="80" r="1.5" fill="rgba(255, 255, 255, 0.15)"/>
+
+  <!-- Minimal Nav -->
+  <text x="60" y="60" fill="white" font-size="16" font-weight="900" letter-spacing="3" font-family="system-ui">AURA®</text>
+  <text x="540" y="60" fill="rgba(255, 255, 255, 0.5)" font-size="12" font-family="system-ui">Works</text>
+  <text x="610" y="60" fill="rgba(255, 255, 255, 0.5)" font-size="12" font-family="system-ui">Studio</text>
+  <text x="680" y="60" fill="white" font-size="12" font-weight="bold" font-family="system-ui">Contact</text>
+
+  <!-- Big Typography Hero -->
+  <text x="60" y="160" fill="white" font-size="44" font-weight="900" font-family="system-ui" letter-spacing="-1">SHAPING DIGITAL</text>
+  <text x="60" y="215" fill="url(#auraGlow)" font-size="44" font-weight="900" font-family="system-ui" letter-spacing="-1">EXPERIENCES.</text>
+  <text x="60" y="255" fill="rgba(255, 255, 255, 0.6)" font-size="15" font-family="system-ui" max-width="400">Award-winning design agency for world-class technology pioneers.</text>
+
+  <!-- Floating Glass Cards (Works Showcase) -->
+  <rect x="60" y="300" width="310" height="160" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.12)"/>
+  <rect x="75" y="315" width="280" height="90" rx="8" fill="rgba(255, 255, 255, 0.07)"/>
+  <circle cx="215" cy="360" r="22" fill="#fb7185" opacity="0.6"/>
+  <text x="75" y="430" fill="white" font-size="13" font-weight="bold" font-family="system-ui">Project Odyssey</text>
+  <text x="75" y="446" fill="rgba(255, 255, 255, 0.4)" font-size="10" font-family="system-ui">Brand Strategy & 3D Interactive Web</text>
+
+  <rect x="400" y="300" width="340" height="160" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.12)"/>
+  <rect x="415" y="315" width="310" height="90" rx="8" fill="rgba(255, 255, 255, 0.07)"/>
+  <rect x="520" y="340" width="100" height="40" rx="6" fill="#38bdf8" opacity="0.4"/>
+  <text x="415" y="430" fill="white" font-size="13" font-weight="bold" font-family="system-ui">Chronos AI Terminal</text>
+  <text x="415" y="446" fill="rgba(255, 255, 255, 0.4)" font-size="10" font-family="system-ui">Design System & Design Token Pipeline</text>
+</svg>

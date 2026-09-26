@@ -1,0 +1,139 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07130D"/>
+      <stop offset="100%" stop-color="#0E231B"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D98F4A"/>
+      <stop offset="100%" stop-color="#E29D5D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bgGrad4)"/>
+
+  <!-- Minimal Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0C1F17" stroke="rgba(245, 239, 227, 0.08)"/>
+  <text x="60" y="37" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Alder &amp; Ash <tspan fill="#D98F4A" font-size="12" font-family="system-ui">— Booking Engine</tspan></text>
+  <text x="1140" y="36" fill="#7EE787" font-size="12" font-family="system-ui" font-weight="600" text-anchor="end">🔒 SSL 256-Bit Encrypted</text>
+
+  <!-- Step Bar -->
+  <g transform="translate(180, 95)">
+    <!-- Progress Line -->
+    <line x1="40" y1="20" x2="800" y2="20" stroke="rgba(245, 239, 227, 0.15)" stroke-width="3"/>
+    <line x1="40" y1="20" x2="420" y2="20" stroke="#D98F4A" stroke-width="3"/>
+
+    <!-- Step 1 -->
+    <circle cx="40" cy="20" r="18" fill="#164031" stroke="#D98F4A" stroke-width="2"/>
+    <text x="40" y="24" fill="#D98F4A" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">✓</text>
+    <text x="40" y="55" fill="#F5EFE3" font-size="11" font-family="system-ui" font-weight="600" text-anchor="middle">1. Cabin</text>
+
+    <!-- Step 2 -->
+    <circle cx="230" cy="20" r="18" fill="#164031" stroke="#D98F4A" stroke-width="2"/>
+    <text x="230" y="24" fill="#D98F4A" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">✓</text>
+    <text x="230" y="55" fill="#F5EFE3" font-size="11" font-family="system-ui" font-weight="600" text-anchor="middle">2. Dates</text>
+
+    <!-- Step 3 Active -->
+    <circle cx="420" cy="20" r="18" fill="#D98F4A"/>
+    <text x="420" y="25" fill="#140D04" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">3</text>
+    <text x="420" y="55" fill="#D98F4A" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">3. Add-Ons</text>
+
+    <!-- Step 4 -->
+    <circle cx="610" cy="20" r="18" fill="#0C1F17" stroke="rgba(245, 239, 227, 0.2)" stroke-width="2"/>
+    <text x="610" y="24" fill="#E8DCC3" fill-opacity="0.5" font-size="12" font-family="system-ui" text-anchor="middle">4</text>
+    <text x="610" y="55" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui" text-anchor="middle">4. Guest Info</text>
+
+    <!-- Step 5 -->
+    <circle cx="800" cy="20" r="18" fill="#0C1F17" stroke="rgba(245, 239, 227, 0.2)" stroke-width="2"/>
+    <text x="800" y="24" fill="#E8DCC3" fill-opacity="0.5" font-size="12" font-family="system-ui" text-anchor="middle">5</text>
+    <text x="800" y="55" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui" text-anchor="middle">5. Confirm</text>
+  </g>
+
+  <!-- Main Booking Area Grid -->
+  <g transform="translate(80, 185)">
+    <!-- Left: Add-ons Selector (Step 3 Content) -->
+    <g transform="translate(0, 0)">
+      <text x="0" y="30" fill="#F5EFE3" font-size="22" font-family="Georgia, serif" font-weight="600">Curate Your Forest Add-Ons</text>
+      <text x="0" y="52" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Enhance your retreat with private amenities and wilderness excursions.</text>
+
+      <!-- Add-on 1 Selected -->
+      <rect x="0" y="75" width="640" height="95" rx="16" fill="rgba(217, 143, 74, 0.08)" stroke="#D98F4A" stroke-width="1.5"/>
+      <rect x="20" y="95" width="55" height="55" rx="12" fill="#1B4234"/>
+      <text x="47" y="130" fill="#D98F4A" font-size="22" text-anchor="middle">♨️</text>
+      <text x="90" y="112" fill="#F5EFE3" font-size="15" font-family="system-ui" font-weight="700">Private Cedar Sauna Session (90 Mins)</text>
+      <text x="90" y="134" fill="#E8DCC3" fill-opacity="0.7" font-size="11" font-family="system-ui">Wood-fired mountain cedar sauna, cold plunge, and herbal hydration tea.</text>
+      <text x="560" y="112" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">+$65</text>
+      <rect x="580" y="100" width="40" height="24" rx="12" fill="#D98F4A"/>
+      <text x="600" y="116" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">✓</text>
+
+      <!-- Add-on 2 Selected -->
+      <rect x="0" y="185" width="640" height="95" rx="16" fill="rgba(217, 143, 74, 0.08)" stroke="#D98F4A" stroke-width="1.5"/>
+      <rect x="20" y="205" width="55" height="55" rx="12" fill="#1B4234"/>
+      <text x="47" y="240" fill="#D98F4A" font-size="22" text-anchor="middle">🧭</text>
+      <text x="90" y="222" fill="#F5EFE3" font-size="15" font-family="system-ui" font-weight="700">Dawn Forest &amp; Gorge Naturalist Hike</text>
+      <text x="90" y="244" fill="#E8DCC3" fill-opacity="0.7" font-size="11" font-family="system-ui">Guided exploration of old-growth flora, animal tracking, and sunrise viewpoint.</text>
+      <text x="560" y="222" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">+$45</text>
+      <rect x="580" y="210" width="40" height="24" rx="12" fill="#D98F4A"/>
+      <text x="600" y="226" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">✓</text>
+
+      <!-- Add-on 3 Unselected -->
+      <rect x="0" y="295" width="640" height="95" rx="16" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(245, 239, 227, 0.1)"/>
+      <rect x="20" y="315" width="55" height="55" rx="12" fill="#132B22"/>
+      <text x="47" y="350" fill="#D98F4A" font-size="22" text-anchor="middle">🍷</text>
+      <text x="90" y="332" fill="#F5EFE3" font-size="15" font-family="system-ui" font-weight="700">Pacific NW Sommelier Wine Flight</text>
+      <text x="90" y="354" fill="#E8DCC3" fill-opacity="0.7" font-size="11" font-family="system-ui">4 reserve biodynamic wines paired with artisanal Pacific Northwest cheeses.</text>
+      <text x="560" y="332" fill="#E8DCC3" font-size="16" font-family="Georgia, serif" text-anchor="end">+$80</text>
+      <rect x="580" y="320" width="40" height="24" rx="12" fill="rgba(255, 255, 255, 0.08)"/>
+      <text x="600" y="336" fill="#E8DCC3" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">+</text>
+
+      <!-- Navigation buttons -->
+      <g transform="translate(0, 420)">
+        <rect x="0" y="0" width="130" height="42" rx="21" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(245, 239, 227, 0.15)"/>
+        <text x="65" y="25" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="600" text-anchor="middle">← Back to Dates</text>
+
+        <rect x="460" y="0" width="180" height="42" rx="21" fill="url(#goldGrad)"/>
+        <text x="550" y="25" fill="#140D04" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">Continue to Guest Info →</text>
+      </g>
+    </g>
+
+    <!-- Right: Sticky Order Summary Box -->
+    <g transform="translate(680, 20)">
+      <rect x="0" y="0" width="360" height="480" rx="20" fill="#0A1D15" stroke="rgba(245, 239, 227, 0.12)"/>
+      <text x="24" y="38" fill="#F5EFE3" font-size="18" font-family="Georgia, serif" font-weight="600">Reservation Summary</text>
+
+      <!-- Selected Cabin Cardlet -->
+      <rect x="24" y="55" width="312" height="70" rx="12" fill="#123024"/>
+      <text x="40" y="82" fill="#F5EFE3" font-size="13" font-family="Georgia, serif" font-weight="600">Riverfront A-Frame Cabin</text>
+      <text x="40" y="102" fill="#E8DCC3" fill-opacity="0.6" font-size="11" font-family="system-ui">Oct 14 — Oct 17 • 3 Nights • 2 Guests</text>
+      <text x="316" y="92" fill="#D98F4A" font-size="14" font-family="Georgia, serif" font-weight="700" text-anchor="end">$885</text>
+
+      <!-- Line items -->
+      <g transform="translate(24, 150)">
+        <text x="0" y="0" fill="#E8DCC3" fill-opacity="0.8" font-size="12" font-family="system-ui">3 Nights ($295 / night)</text>
+        <text x="312" y="0" fill="#F5EFE3" font-size="12" font-family="system-ui" text-anchor="end">$885.00</text>
+
+        <text x="0" y="28" fill="#E8DCC3" fill-opacity="0.8" font-size="12" font-family="system-ui">Cedar Sauna Session</text>
+        <text x="312" y="28" fill="#F5EFE3" font-size="12" font-family="system-ui" text-anchor="end">$65.00</text>
+
+        <text x="0" y="56" fill="#E8DCC3" fill-opacity="0.8" font-size="12" font-family="system-ui">Dawn Naturalist Hike</text>
+        <text x="312" y="56" fill="#F5EFE3" font-size="12" font-family="system-ui" text-anchor="end">$45.00</text>
+
+        <text x="0" y="84" fill="#E8DCC3" fill-opacity="0.8" font-size="12" font-family="system-ui">Lodge Preservation Fee</text>
+        <text x="312" y="84" fill="#F5EFE3" font-size="12" font-family="system-ui" text-anchor="end">$35.00</text>
+
+        <line x1="0" y1="105" x2="312" y2="105" stroke="rgba(245, 239, 227, 0.1)"/>
+
+        <text x="0" y="132" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="700">Total Stay</text>
+        <text x="312" y="132" fill="#D98F4A" font-size="20" font-family="Georgia, serif" font-weight="700" text-anchor="end">$1,030.00</text>
+      </g>
+
+      <!-- Trust note -->
+      <rect x="24" y="325" width="312" height="70" rx="12" fill="rgba(62, 122, 92, 0.1)" stroke="rgba(62, 122, 92, 0.3)"/>
+      <text x="40" y="350" fill="#7EE787" font-size="11" font-family="system-ui" font-weight="700">✨ Free Cancellation Up to 7 Days Prior</text>
+      <text x="40" y="372" fill="#E8DCC3" fill-opacity="0.6" font-size="10" font-family="system-ui">No upfront penalty. Guaranteed wilderness check-in.</text>
+
+      <rect x="24" y="415" width="312" height="42" rx="21" fill="url(#goldGrad)"/>
+      <text x="180" y="440" fill="#140D04" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">Continue to Guest Details →</text>
+    </g>
+  </g>
+</svg>

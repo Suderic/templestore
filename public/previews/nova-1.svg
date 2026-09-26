@@ -1,0 +1,85 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- Glow orbs -->
+  <circle cx="200" cy="150" r="140" fill="#4f46e5" opacity="0.3" filter="url(#blur)"/>
+  <circle cx="650" cy="350" r="120" fill="#ec4899" opacity="0.25" filter="url(#blur)"/>
+
+  <!-- Glass Dashboard Shell -->
+  <rect x="40" y="40" width="720" height="420" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+
+  <!-- Sidebar -->
+  <rect x="40" y="40" width="160" height="420" rx="16" fill="rgba(0, 0, 0, 0.2)" stroke="rgba(255, 255, 255, 0.08)"/>
+  <circle cx="70" cy="75" r="10" fill="url(#glow)"/>
+  <rect x="92" y="70" width="70" height="10" rx="4" fill="white" opacity="0.9"/>
+
+  <rect x="60" y="120" width="120" height="28" rx="8" fill="rgba(99, 102, 241, 0.2)" stroke="rgba(99, 102, 241, 0.4)"/>
+  <rect x="75" y="130" width="70" height="8" rx="4" fill="#a5b4fc"/>
+  <rect x="60" y="160" width="120" height="24" rx="6" fill="transparent"/>
+  <rect x="75" y="168" width="80" height="8" rx="4" fill="rgba(255, 255, 255, 0.4)"/>
+  <rect x="60" y="196" width="120" height="24" rx="6" fill="transparent"/>
+  <rect x="75" y="204" width="60" height="8" rx="4" fill="rgba(255, 255, 255, 0.4)"/>
+  <rect x="60" y="232" width="120" height="24" rx="6" fill="transparent"/>
+  <rect x="75" y="240" width="75" height="8" rx="4" fill="rgba(255, 255, 255, 0.4)"/>
+
+  <!-- Header -->
+  <rect x="230" y="65" width="180" height="14" rx="4" fill="white" opacity="0.95"/>
+  <rect x="230" y="86" width="120" height="9" rx="3" fill="rgba(255, 255, 255, 0.4)"/>
+  <rect x="650" y="65" width="80" height="30" rx="8" fill="url(#glow)"/>
+  <text x="690" y="85" fill="white" font-size="11" font-family="system-ui, sans-serif" font-weight="600" text-anchor="middle">+ New Event</text>
+
+  <!-- Metric Cards -->
+  <rect x="230" y="120" width="150" height="85" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="246" y="145" fill="rgba(255, 255, 255, 0.5)" font-size="11" font-family="system-ui">Total ARR</text>
+  <text x="246" y="175" fill="#ffffff" font-size="20" font-weight="bold" font-family="system-ui">$184,420</text>
+  <rect x="330" y="138" width="38" height="16" rx="4" fill="rgba(34, 197, 94, 0.15)"/>
+  <text x="349" y="150" fill="#4ade80" font-size="9" text-anchor="middle" font-family="system-ui">+24%</text>
+
+  <rect x="395" y="120" width="150" height="85" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="411" y="145" fill="rgba(255, 255, 255, 0.5)" font-size="11" font-family="system-ui">Active Users</text>
+  <text x="411" y="175" fill="#ffffff" font-size="20" font-weight="bold" font-family="system-ui">14,290</text>
+
+  <rect x="560" y="120" width="170" height="85" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="576" y="145" fill="rgba(255, 255, 255, 0.5)" font-size="11" font-family="system-ui">AI Queries</text>
+  <text x="576" y="175" fill="#ffffff" font-size="20" font-weight="bold" font-family="system-ui">892,104</text>
+
+  <!-- Big Chart Card -->
+  <rect x="230" y="225" width="315" height="210" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="250" y="255" fill="white" font-size="13" font-weight="600" font-family="system-ui">Growth Trends</text>
+  <!-- Chart line -->
+  <path d="M250 380 Q 290 340, 330 350 T 410 300 T 490 280 T 525 250" fill="none" stroke="url(#accent)" stroke-width="3.5"/>
+  <path d="M250 380 Q 290 340, 330 350 T 410 300 T 490 280 T 525 250 L 525 410 L 250 410 Z" fill="url(#accent)" opacity="0.12"/>
+  <circle cx="525" cy="250" r="5" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- Right Activity List -->
+  <rect x="560" y="225" width="170" height="210" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="576" y="255" fill="white" font-size="13" font-weight="600" font-family="system-ui">Live Events</text>
+  <circle cx="585" cy="285" r="5" fill="#22c55e"/>
+  <rect x="600" y="280" width="105" height="8" rx="3" fill="rgba(255, 255, 255, 0.7)"/>
+  <circle cx="585" cy="315" r="5" fill="#6366f1"/>
+  <rect x="600" y="310" width="85" height="8" rx="3" fill="rgba(255, 255, 255, 0.7)"/>
+  <circle cx="585" cy="345" r="5" fill="#f59e0b"/>
+  <rect x="600" y="340" width="95" height="8" rx="3" fill="rgba(255, 255, 255, 0.7)"/>
+  <circle cx="585" cy="375" r="5" fill="#ec4899"/>
+  <rect x="600" y="370" width="75" height="8" rx="3" fill="rgba(255, 255, 255, 0.7)"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#090d16"/>
+  
+  <!-- Left Product Imagery -->
+  <rect x="50" y="50" width="340" height="400" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <circle cx="220" cy="230" r="80" fill="rgba(99, 102, 241, 0.25)"/>
+  <circle cx="220" cy="230" r="45" fill="#6366f1" opacity="0.6"/>
+  <text x="220" y="360" fill="rgba(255, 255, 255, 0.4)" font-size="12" text-anchor="middle" font-family="system-ui">360° Interactive Viewer Active</text>
+
+  <!-- Right Product Detail & Options -->
+  <rect x="420" y="50" width="330" height="400" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <text x="450" y="95" fill="white" font-size="22" font-weight="900" font-family="system-ui">Stealth Modular Parka</text>
+  <text x="450" y="130" fill="#ec4899" font-size="26" font-weight="bold" font-family="system-ui">$280 <tspan font-size="13" fill="rgba(255, 255, 255, 0.4)" text-decoration="line-through">$340</tspan></text>
+  
+  <text x="450" y="175" fill="rgba(255, 255, 255, 0.8)" font-size="12" font-weight="bold" font-family="system-ui">Select Colorway</text>
+  <circle cx="465" cy="205" r="14" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="505" cy="205" r="14" fill="#334155"/>
+  <circle cx="545" cy="205" r="14" fill="#64748b"/>
+
+  <text x="450" y="250" fill="rgba(255, 255, 255, 0.8)" font-size="12" font-weight="bold" font-family="system-ui">Select Size</text>
+  <rect x="450" y="265" width="40" height="32" rx="6" fill="rgba(255, 255, 255, 0.08)"/>
+  <text x="470" y="286" fill="white" font-size="12" text-anchor="middle" font-family="system-ui">S</text>
+  <rect x="500" y="265" width="40" height="32" rx="6" fill="#6366f1"/>
+  <text x="520" y="286" fill="white" font-size="12" text-anchor="middle" font-family="system-ui">M</text>
+  <rect x="550" y="265" width="40" height="32" rx="6" fill="rgba(255, 255, 255, 0.08)"/>
+  <text x="570" y="286" fill="white" font-size="12" text-anchor="middle" font-family="system-ui">L</text>
+  <rect x="600" y="265" width="40" height="32" rx="6" fill="rgba(255, 255, 255, 0.08)"/>
+  <text x="620" y="286" fill="white" font-size="12" text-anchor="middle" font-family="system-ui">XL</text>
+
+  <rect x="450" y="340" width="270" height="46" rx="10" fill="#ec4899"/>
+  <text x="585" y="369" fill="white" font-size="13" font-weight="bold" text-anchor="middle" font-family="system-ui">Add to Bag • $280</text>
+</svg>

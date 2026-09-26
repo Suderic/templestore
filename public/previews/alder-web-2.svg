@@ -1,0 +1,87 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07140E"/>
+      <stop offset="100%" stop-color="#0E271F"/>
+    </linearGradient>
+    <linearGradient id="amberBtn" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D98F4A"/>
+      <stop offset="100%" stop-color="#E29D5D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bgGrad2)"/>
+
+  <!-- Minimal Website Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0B2019" stroke="rgba(245, 239, 227, 0.08)"/>
+  <text x="60" y="37" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Alder &amp; Ash <tspan fill="#D98F4A" font-size="12" font-family="system-ui">— Accommodations</tspan></text>
+  <rect x="1050" y="14" width="100" height="32" rx="16" fill="url(#amberBtn)"/>
+  <text x="1100" y="34" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">Book Now</text>
+
+  <!-- Section Title -->
+  <text x="600" y="115" fill="#D98F4A" font-size="11" font-family="system-ui" font-weight="700" letter-spacing="3" text-anchor="middle">REST &amp; RENEWAL</text>
+  <text x="600" y="155" fill="#F5EFE3" font-size="34" font-family="Georgia, serif" font-weight="500" text-anchor="middle">Curated Forest Accommodations</text>
+  <text x="600" y="185" fill="#E8DCC3" fill-opacity="0.7" font-size="13" font-family="system-ui" text-anchor="middle">Every room is nestled into natural forest topography with a private deck and outdoor soaking tub.</text>
+
+  <!-- Capacity Filter Bar -->
+  <g transform="translate(360, 215)">
+    <rect x="0" y="0" width="480" height="38" rx="19" fill="rgba(245, 239, 227, 0.04)" stroke="rgba(245, 239, 227, 0.1)"/>
+    <rect x="4" y="4" width="110" height="30" rx="15" fill="#D98F4A"/>
+    <text x="59" y="23" fill="#140D04" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">All Cabins (8)</text>
+    <text x="175" y="23" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="500">Solo Retreat (2)</text>
+    <text x="290" y="23" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="500">Couples (4)</text>
+    <text x="400" y="23" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="500">Group &amp; Family (2)</text>
+  </g>
+
+  <!-- 3 Cabin Cards Grid -->
+  <g transform="translate(60, 280)">
+    <!-- Cabin Card 1 -->
+    <rect x="0" y="0" width="340" height="420" rx="20" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.12)"/>
+    <!-- Image Box -->
+    <rect x="14" y="14" width="312" height="190" rx="14" fill="#15362B"/>
+    <text x="170" y="115" fill="#D98F4A" font-size="32" text-anchor="middle">🏡</text>
+    <!-- Badge -->
+    <rect x="26" y="26" width="96" height="24" rx="12" fill="#D98F4A"/>
+    <text x="74" y="42" fill="#140D04" font-size="10" font-family="system-ui" font-weight="700" text-anchor="middle">Most Popular</text>
+    <!-- Content -->
+    <text x="24" y="235" fill="#F5EFE3" font-size="18" font-family="Georgia, serif" font-weight="600">Riverfront A-Frame Cabin</text>
+    <text x="24" y="258" fill="#E8DCC3" fill-opacity="0.6" font-size="12" font-family="system-ui">Up to 2 Guests • 1 King Bed • Cedar Tub</text>
+    <text x="24" y="290" fill="#E8DCC3" fill-opacity="0.75" font-size="12" font-family="system-ui">Built over rushing trout stream with outdoor cedar soaking tub and glass stargazing roof.</text>
+    <!-- Price & Button -->
+    <line x1="24" y1="350" x2="316" y2="350" stroke="rgba(245, 239, 227, 0.1)"/>
+    <text x="24" y="385" fill="#F5EFE3" font-size="22" font-family="Georgia, serif" font-weight="700">$295</text>
+    <text x="78" y="385" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui">/ night</text>
+    <rect x="210" y="362" width="106" height="34" rx="17" fill="url(#amberBtn)"/>
+    <text x="263" y="383" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">Reserve Cabin</text>
+
+    <!-- Cabin Card 2 -->
+    <rect x="370" y="0" width="340" height="420" rx="20" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.12)"/>
+    <rect x="384" y="14" width="312" height="190" rx="14" fill="#133328"/>
+    <text x="540" y="115" fill="#D98F4A" font-size="32" text-anchor="middle">🌲</text>
+    <rect x="396" y="26" width="96" height="24" rx="12" fill="#3E7A5C"/>
+    <text x="444" y="42" fill="#FFFFFF" font-size="10" font-family="system-ui" font-weight="700" text-anchor="middle">Canopy View</text>
+    <text x="394" y="235" fill="#F5EFE3" font-size="18" font-family="Georgia, serif" font-weight="600">Old-Growth Timber Lodge</text>
+    <text x="394" y="258" fill="#E8DCC3" fill-opacity="0.6" font-size="12" font-family="system-ui">Up to 4 Guests • 2 Queen Beds • Wood Stove</text>
+    <text x="394" y="290" fill="#E8DCC3" fill-opacity="0.75" font-size="12" font-family="system-ui">Hand-hewn timber beams with native stone hearth, full kitchenette, and private sauna.</text>
+    <line x1="394" y1="350" x2="686" y2="350" stroke="rgba(245, 239, 227, 0.1)"/>
+    <text x="394" y="385" fill="#F5EFE3" font-size="22" font-family="Georgia, serif" font-weight="700">$380</text>
+    <text x="448" y="385" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui">/ night</text>
+    <rect x="580" y="362" width="106" height="34" rx="17" fill="url(#amberBtn)"/>
+    <text x="633" y="383" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">Reserve Cabin</text>
+
+    <!-- Cabin Card 3 -->
+    <rect x="740" y="0" width="340" height="420" rx="20" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.12)"/>
+    <rect x="754" y="14" width="312" height="190" rx="14" fill="#173B2F"/>
+    <text x="910" y="115" fill="#D98F4A" font-size="32" text-anchor="middle">⛰️</text>
+    <rect x="766" y="26" width="106" height="24" rx="12" fill="#D98F4A"/>
+    <text x="819" y="42" fill="#140D04" font-size="10" font-family="system-ui" font-weight="700" text-anchor="middle">Luxury Ridge</text>
+    <text x="764" y="235" fill="#F5EFE3" font-size="18" font-family="Georgia, serif" font-weight="600">Canopy Ridge Villa</text>
+    <text x="764" y="258" fill="#E8DCC3" fill-opacity="0.6" font-size="12" font-family="system-ui">Up to 6 Guests • 3 Bedrooms • 2 Baths</text>
+    <text x="764" y="290" fill="#E8DCC3" fill-opacity="0.75" font-size="12" font-family="system-ui">Perched on the highest bluff overlooking the river gorge with expansive outdoor deck.</text>
+    <line x1="764" y1="350" x2="1056" y2="350" stroke="rgba(245, 239, 227, 0.1)"/>
+    <text x="764" y="385" fill="#F5EFE3" font-size="22" font-family="Georgia, serif" font-weight="700">$490</text>
+    <text x="818" y="385" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui">/ night</text>
+    <rect x="950" y="362" width="106" height="34" rx="17" fill="url(#amberBtn)"/>
+    <text x="1003" y="383" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">Reserve Cabin</text>
+  </g>
+</svg>

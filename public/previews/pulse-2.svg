@@ -1,0 +1,17 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#04130f"/>
+  <rect x="250" y="30" width="300" height="440" rx="32" fill="#0b1b16" stroke="rgba(16, 185, 129, 0.4)" stroke-width="3"/>
+  <text x="280" y="90" fill="#10b981" font-size="12" font-weight="600" font-family="system-ui">WEEKLY BIOMETRICS</text>
+  <text x="280" y="115" fill="white" font-size="20" font-weight="bold" font-family="system-ui">Heart Rate & Recovery</text>
+  
+  <rect x="275" y="140" width="250" height="150" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)"/>
+  <path d="M290 220 Q 320 180, 350 200 T 410 160 T 470 190 T 510 150" fill="none" stroke="#10b981" stroke-width="3"/>
+  <text x="290" y="270" fill="white" font-size="24" font-weight="bold" font-family="system-ui">58 <tspan font-size="12" fill="rgba(255, 255, 255, 0.6)">BPM Resting</tspan></text>
+
+  <!-- Sleep Card -->
+  <rect x="275" y="310" width="250" height="90" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)"/>
+  <text x="295" y="340" fill="white" font-size="14" font-weight="bold" font-family="system-ui">Sleep Quality: 91%</text>
+  <text x="295" y="365" fill="#34d399" font-size="12" font-family="system-ui">7h 48m Deep & REM Sleep</text>
+  <rect x="295" y="380" width="210" height="6" rx="3" fill="rgba(255, 255, 255, 0.1)"/>
+  <rect x="295" y="380" width="190" height="6" rx="3" fill="#10b981"/>
+</svg>

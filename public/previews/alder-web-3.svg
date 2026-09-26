@@ -1,0 +1,100 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E0C0A"/>
+      <stop offset="50%" stop-color="#1B1713"/>
+      <stop offset="100%" stop-color="#100C09"/>
+    </linearGradient>
+    <radialGradient id="hearthGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#D98F4A" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#D98F4A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="amberAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D98F4A"/>
+      <stop offset="100%" stop-color="#E29D5D"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bgGrad3)"/>
+  <rect width="1200" height="750" fill="url(#hearthGlow)"/>
+
+  <!-- Minimal Header -->
+  <rect x="0" y="0" width="1200" height="60" fill="#14100D" stroke="rgba(245, 239, 227, 0.08)"/>
+  <text x="60" y="37" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Alder &amp; Ash <tspan fill="#D98F4A" font-size="12" font-family="system-ui">— Hearth Dining</tspan></text>
+  <rect x="1030" y="14" width="120" height="32" rx="16" fill="url(#amberAccent)"/>
+  <text x="1090" y="34" fill="#140D04" font-size="11" font-family="system-ui" font-weight="700" text-anchor="middle">Reserve Table</text>
+
+  <!-- Title Section -->
+  <text x="600" y="120" fill="#D98F4A" font-size="11" font-family="system-ui" font-weight="700" letter-spacing="3" text-anchor="middle">FIRE, EARTH &amp; HARVEST</text>
+  <text x="600" y="160" fill="#F5EFE3" font-size="34" font-family="Georgia, serif" font-weight="500" text-anchor="middle">The Hearth Restaurant Menus</text>
+  <text x="600" y="190" fill="#E8DCC3" fill-opacity="0.75" font-size="13" font-family="system-ui" text-anchor="middle">Ingredients foraged from the surrounding foothills and cooked over open embers of alder wood.</text>
+
+  <!-- Menu Category Tabs -->
+  <g transform="translate(420, 220)">
+    <rect x="0" y="0" width="360" height="40" rx="20" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(245, 239, 227, 0.1)"/>
+    <rect x="124" y="4" width="112" height="32" rx="16" fill="#D98F4A"/>
+    <text x="60" y="25" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="500" text-anchor="middle">Morning (7-11)</text>
+    <text x="180" y="25" fill="#140D04" font-size="12" font-family="system-ui" font-weight="700" text-anchor="middle">Evening Feast</text>
+    <text x="295" y="25" fill="#E8DCC3" font-size="12" font-family="system-ui" font-weight="500" text-anchor="middle">Wild Cocktails</text>
+  </g>
+
+  <!-- Menu Items Grid -->
+  <g transform="translate(100, 290)">
+    <!-- Column 1 -->
+    <g transform="translate(0, 0)">
+      <!-- Item 1 -->
+      <rect x="0" y="0" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="35" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Wood-Fired Columbia River King Salmon</text>
+      <text x="450" y="35" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$42</text>
+      <text x="24" y="65" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Cedar plank smoked, braised morel mushrooms, wild spruce oil, and charred leek emulsion.</text>
+      <rect x="24" y="78" width="30" height="18" rx="4" fill="#3E7A5C" fill-opacity="0.3"/>
+      <text x="39" y="91" fill="#7EE787" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">GF</text>
+
+      <!-- Item 2 -->
+      <rect x="0" y="130" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="165" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Cast-Iron Venison Loin</text>
+      <text x="450" y="165" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$48</text>
+      <text x="24" y="195" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Huckleberry juniper reduction, roasted parsnip puree, butter-poached chanterelles.</text>
+      <rect x="24" y="208" width="30" height="18" rx="4" fill="#3E7A5C" fill-opacity="0.3"/>
+      <text x="39" y="221" fill="#7EE787" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">GF</text>
+
+      <!-- Item 3 -->
+      <rect x="0" y="260" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="295" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Smoked Sourdough &amp; Cultured Butter</text>
+      <text x="450" y="295" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$14</text>
+      <text x="24" y="325" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">36-hour fermented local heritage grain loaf with house-churned pine needle honey butter.</text>
+      <rect x="24" y="338" width="30" height="18" rx="4" fill="#D98F4A" fill-opacity="0.2"/>
+      <text x="39" y="351" fill="#D98F4A" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">VG</text>
+    </g>
+
+    <!-- Column 2 -->
+    <g transform="translate(520, 0)">
+      <!-- Item 4 -->
+      <rect x="0" y="0" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="35" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Cascade Black Truffle Risotto</text>
+      <text x="450" y="35" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$34</text>
+      <text x="24" y="65" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Carnaroli rice, 24-month aged mountain cheese, crispy shallots, foraged winter truffles.</text>
+      <rect x="24" y="78" width="30" height="18" rx="4" fill="#D98F4A" fill-opacity="0.2"/>
+      <text x="39" y="91" fill="#D98F4A" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">VG</text>
+
+      <!-- Item 5 -->
+      <rect x="0" y="130" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="165" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Ember-Roasted Root Vegetables</text>
+      <text x="450" y="165" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$22</text>
+      <text x="24" y="195" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Heritage heirloom carrots, golden beets, toasted hazelnuts, smoked goat curd, herb pollen.</text>
+      <rect x="24" y="208" width="30" height="18" rx="4" fill="#7EE787" fill-opacity="0.3"/>
+      <text x="39" y="221" fill="#7EE787" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">GF</text>
+
+      <!-- Item 6 -->
+      <rect x="0" y="260" width="480" height="110" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(245, 239, 227, 0.08)"/>
+      <text x="24" y="295" fill="#F5EFE3" font-size="16" font-family="Georgia, serif" font-weight="600">Wild Mountain Blackberry Tart</text>
+      <text x="450" y="295" fill="#D98F4A" font-size="16" font-family="Georgia, serif" font-weight="700" text-anchor="end">$16</text>
+      <text x="24" y="325" fill="#E8DCC3" fill-opacity="0.7" font-size="12" font-family="system-ui">Almond frangipane, hand-gathered mountain blackberries, raw Douglas fir needle ice cream.</text>
+      <rect x="24" y="338" width="30" height="18" rx="4" fill="#D98F4A" fill-opacity="0.2"/>
+      <text x="39" y="351" fill="#D98F4A" font-size="9" font-family="system-ui" font-weight="700" text-anchor="middle">VG</text>
+    </g>
+  </g>
+
+  <!-- Bottom Notice -->
+  <text x="600" y="715" fill="#E8DCC3" fill-opacity="0.5" font-size="11" font-family="system-ui" text-anchor="middle">Dinner served nightly 5:30 PM — 10:00 PM • Advance bookings recommended for lodge &amp; outside guests</text>
+</svg>

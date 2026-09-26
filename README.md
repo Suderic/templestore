@@ -50,37 +50,40 @@ For complete system handovers, blueprints, architecture diagrams, and flowcharts
 
 ```text
 Templestore/
+├── .github/
+│   └── workflows/
+│       └── ci.yml              # GitHub Actions CI (lint & build verification)
+├── docs/                       # Architecture, design systems, and runbooks
+│   ├── assets/                 # Brand assets & vector logos
+│   ├── design-ideas/           # Reference concepts & template plans
+│   ├── ARCHITECTURE.md
+│   ├── DATA_LAYER_GUIDE.md
+│   ├── DEPLOYMENT_HANDOVER.md
+│   ├── DESIGN_SYSTEM.md
+│   └── FLOWCHARTS.md
 ├── public/
-│   └── previews/               # Crisp vector UI mockups (nova, aura, pulse, apex)
+│   └── previews/               # Vector UI mockups & responsive captures
 ├── src/
 │   ├── app/
-│   │   ├── auth/
-│   │   │   ├── signin/page.tsx # Sign-in page with 1-click demo login
-│   │   │   └── signup/page.tsx # Sign-up page
-│   │   ├── contact/page.tsx    # Contact inquiry page with validation
-│   │   ├── dashboard/page.tsx  # User dashboard with downloads & receipts
-│   │   ├── templates/
-│   │   │   ├── page.tsx        # Template gallery with search, filter, sort
-│   │   │   └── [slug]/page.tsx # Dynamic template detail & purchase page
-│   │   ├── globals.css         # Glassmorphic utilities & dark mode styling
+│   │   ├── auth/               # Sign-in & sign-up flows
+│   │   ├── contact/            # Contact inquiry page
+│   │   ├── dashboard/          # User dashboard with downloads & receipts
+│   │   ├── demo/alder-ash/     # Flagship interactive resort template demo
+│   │   ├── templates/          # Template marketplace & detail pages
+│   │   ├── globals.css         # Glassmorphism & dark mode styling
 │   │   ├── layout.tsx          # Root layout with providers & ambient glows
 │   │   └── page.tsx            # Landing homepage
-│   ├── components/
-│   │   ├── layout/             # Navbar, Footer, DevBanner
-│   │   ├── providers/          # ThemeProvider
-│   │   ├── templates/          # TemplateCard, TemplateFilter, TemplateGallery,
-│   │   │                       # QRCodeModal, DirectCheckoutModal, ContactModal
-│   │   └── ui/                 # Button, Input, Modal, Badge, ThemeToggle
-│   ├── context/
-│   │   └── AuthContext.tsx     # Client authentication & purchase state
-│   ├── data/
-│   │   ├── templates.ts        # ⭐ SINGLE SOURCE OF TRUTH FOR TEMPLATES
-│   │   └── mockAuth.ts         # Seed users & initial purchase records
-│   └── types/
-│       └── index.ts            # TypeScript definitions (Template, User, Purchase)
-├── .env.example
+│   ├── components/             # Reusable UI, layout, and template components
+│   ├── context/                # Client authentication & purchase state
+│   ├── data/                   # ⭐ Single source of truth for templates & mock auth
+│   └── types/                  # TypeScript interface definitions
+├── .env.example                # Environment variable template
+├── .gitignore                  # Git ignore rules for Next.js & OS
+├── eslint.config.mjs           # ESLint 9 configuration with Next.js rules
+├── next.config.ts              # Next.js 16 configuration with image optimization
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── vercel.json                 # Vercel deployment preset configuration
 ```
 
 ---
@@ -99,10 +102,59 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 3. Production Build & Verification
+### 3. Production Build & Linting Verification
 ```bash
+npm run lint
 npm run build
 npm start
+```
+
+---
+
+## 🌐 Deploy to Vercel
+
+This repository is optimized for zero-config **Vercel** deployment:
+
+### Option A: Via GitHub Integration (Recommended)
+1. Push your repository to **GitHub** (see instructions below).
+2. Go to [vercel.com/new](https://vercel.com/new).
+3. Import your GitHub repository (`Templestore`).
+4. Vercel automatically detects Next.js via `vercel.json` and configures all build settings.
+5. Click **Deploy**. Your site will be live on a `*.vercel.app` URL with automatic SSL and Edge CDN.
+
+### Option B: Via Vercel CLI
+```bash
+# 1. Install Vercel CLI
+npm i -g vercel
+
+# 2. Deploy directly
+vercel
+
+# 3. Deploy to production
+vercel --prod
+```
+
+---
+
+## 🐙 Pushing to GitHub
+
+To push this codebase to a new GitHub repository:
+
+```bash
+# 1. Stage all restructured and configured files
+git add .
+
+# 2. Commit changes
+git commit -m "feat: complete Templestore marketplace with responsive preview, clean CI and Vercel readiness"
+
+# 3. Rename default branch to main
+git branch -M main
+
+# 4. Connect to your GitHub repository (replace with your repo URL)
+git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+
+# 5. Push to GitHub
+git push -u origin main
 ```
 
 ---

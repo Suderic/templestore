@@ -1,0 +1,185 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wtdBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#wtdBg)"/>
+
+  <!-- Subtle Ambient Glow -->
+  <circle cx="280" cy="180" r="140" fill="#10b981" opacity="0.08"/>
+  <circle cx="560" cy="280" r="120" fill="#f59e0b" opacity="0.06"/>
+
+  <!-- Left Phone Mockup: Today View & 101 Point Score -->
+  <g transform="translate(140, 25)">
+    <!-- Phone Body -->
+    <rect width="230" height="450" rx="36" fill="#0f172a" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2"/>
+    <rect x="2" y="2" width="226" height="446" rx="34" fill="#090d16"/>
+    
+    <!-- Dynamic Island / Notch -->
+    <rect x="75" y="12" width="80" height="18" rx="9" fill="#000000"/>
+    <circle cx="90" cy="21" r="3.5" fill="#1e293b"/>
+    <circle cx="140" cy="21" r="3" fill="#10b981" opacity="0.7"/>
+
+    <!-- App Header -->
+    <text x="24" y="58" fill="#94a3b8" font-size="10" font-weight="700" letter-spacing="1" font-family="system-ui, sans-serif">TUESDAY, SEP 27</text>
+    <text x="24" y="80" fill="#ffffff" font-size="18" font-weight="800" font-family="system-ui, sans-serif">Win the Day</text>
+
+    <!-- Streak Badge -->
+    <rect x="145" y="65" width="62" height="22" rx="11" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.3)"/>
+    <text x="176" y="80" fill="#f59e0b" font-size="10" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">🔥 14 Days</text>
+
+    <!-- Score Card -->
+    <rect x="20" y="98" width="190" height="92" rx="16" fill="rgba(16, 185, 129, 0.08)" stroke="rgba(16, 185, 129, 0.25)"/>
+    <text x="36" y="124" fill="#10b981" font-size="10" font-weight="700" font-family="system-ui, sans-serif">DAILY SCORE</text>
+    <text x="36" y="160" fill="#ffffff" font-size="34" font-weight="900" font-family="system-ui, sans-serif">101</text>
+    <text x="96" y="152" fill="#64748b" font-size="13" font-weight="600" font-family="system-ui, sans-serif">/ 101 pts</text>
+    <text x="36" y="176" fill="#34d399" font-size="9" font-weight="600" font-family="system-ui, sans-serif">✓ 100 Base + 1 Streak Bonus</text>
+
+    <!-- Circular Progress Ring inside card -->
+    <circle cx="170" cy="144" r="26" stroke="rgba(255, 255, 255, 0.1)" stroke-width="5" fill="none"/>
+    <circle cx="170" cy="144" r="26" stroke="url(#emeraldGrad)" stroke-width="5" fill="none" stroke-dasharray="163" stroke-dashoffset="0" stroke-linecap="round"/>
+    <text x="170" y="148" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">100%</text>
+
+    <!-- Task Items -->
+    <!-- Task 1: Wake Up Early -->
+    <rect x="20" y="202" width="190" height="42" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)"/>
+    <rect x="30" y="213" width="20" height="20" rx="6" fill="#10b981"/>
+    <path d="M36 223 L39 226 L45 220" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="222" fill="#ffffff" font-size="11" font-weight="700" font-family="system-ui, sans-serif">Wake Up Early</text>
+    <text x="58" y="235" fill="#64748b" font-size="9" font-family="system-ui, sans-serif">Completed at 05:45 AM</text>
+    <text x="195" y="228" fill="#10b981" font-size="11" font-weight="700" text-anchor="end" font-family="system-ui, sans-serif">+15</text>
+
+    <!-- Task 2: Drink 3L Water -->
+    <rect x="20" y="252" width="190" height="42" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)"/>
+    <rect x="30" y="263" width="20" height="20" rx="6" fill="#10b981"/>
+    <path d="M36 273 L39 276 L45 270" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="272" fill="#ffffff" font-size="11" font-weight="700" font-family="system-ui, sans-serif">Drink 3L Water</text>
+    <text x="58" y="285" fill="#64748b" font-size="9" font-family="system-ui, sans-serif">6 of 6 glasses (3000 ml)</text>
+    <text x="195" y="278" fill="#10b981" font-size="11" font-weight="700" text-anchor="end" font-family="system-ui, sans-serif">+10</text>
+
+    <!-- Task 3: Focus Work -->
+    <rect x="20" y="302" width="190" height="42" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255, 255, 255, 0.08)"/>
+    <rect x="30" y="313" width="20" height="20" rx="6" fill="#10b981"/>
+    <path d="M36 323 L39 326 L45 320" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="322" fill="#ffffff" font-size="11" font-weight="700" font-family="system-ui, sans-serif">Deep Work Session</text>
+    <text x="58" y="335" fill="#64748b" font-size="9" font-family="system-ui, sans-serif">60m Focus Timer Logged</text>
+    <text x="195" y="328" fill="#10b981" font-size="11" font-weight="700" text-anchor="end" font-family="system-ui, sans-serif">+20</text>
+
+    <!-- Bottom Nav Bar -->
+    <rect x="20" y="396" width="190" height="38" rx="19" fill="#020617" stroke="rgba(255, 255, 255, 0.08)"/>
+    <circle cx="55" cy="415" r="4" fill="#10b981"/>
+    <text x="65" y="418" fill="#ffffff" font-size="9" font-weight="700" font-family="system-ui, sans-serif">Today</text>
+    <text x="115" y="418" fill="#64748b" font-size="9" font-weight="600" font-family="system-ui, sans-serif">Heatmap</text>
+    <text x="175" y="418" fill="#64748b" font-size="9" font-weight="600" font-family="system-ui, sans-serif">Settings</text>
+  </g>
+
+  <!-- Right Phone Mockup: Focus Timer & Heatmap Matrix -->
+  <g transform="translate(430, 25)">
+    <!-- Phone Body -->
+    <rect width="230" height="450" rx="36" fill="#0f172a" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2"/>
+    <rect x="2" y="2" width="226" height="446" rx="34" fill="#090d16"/>
+    
+    <!-- Notch -->
+    <rect x="75" y="12" width="80" height="18" rx="9" fill="#000000"/>
+    <circle cx="90" cy="21" r="3.5" fill="#1e293b"/>
+
+    <!-- Screen Title -->
+    <text x="24" y="58" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="1" font-family="system-ui, sans-serif">DEEP WORK</text>
+    <text x="24" y="80" fill="#ffffff" font-size="18" font-weight="800" font-family="system-ui, sans-serif">60-Min Timer</text>
+
+    <!-- Pomodoro Ring -->
+    <circle cx="115" cy="165" r="58" stroke="rgba(255, 255, 255, 0.06)" stroke-width="8" fill="none"/>
+    <circle cx="115" cy="165" r="58" stroke="url(#fireGrad)" stroke-width="8" fill="none" stroke-dasharray="364" stroke-dashoffset="120" stroke-linecap="round"/>
+    <text x="115" y="166" fill="#ffffff" font-size="24" font-weight="900" text-anchor="middle" font-family="system-ui, sans-serif">48:15</text>
+    <text x="115" y="184" fill="#f59e0b" font-size="9" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">ACTIVE SESSION</text>
+
+    <!-- Timer Controls -->
+    <rect x="40" y="234" width="70" height="30" rx="15" fill="rgba(245, 158, 11, 0.15)" stroke="rgba(245, 158, 11, 0.4)"/>
+    <text x="75" y="253" fill="#f59e0b" font-size="10" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Pause</text>
+
+    <rect x="120" y="234" width="70" height="30" rx="15" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
+    <text x="155" y="253" fill="#94a3b8" font-size="10" font-weight="600" text-anchor="middle" font-family="system-ui, sans-serif">Reset</text>
+
+    <!-- Mini Consistency Heatmap Card -->
+    <rect x="20" y="280" width="190" height="106" rx="16" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.08)"/>
+    <text x="32" y="302" fill="#ffffff" font-size="10" font-weight="700" font-family="system-ui, sans-serif">16-Week Consistency Matrix</text>
+
+    <!-- Heatmap Grid -->
+    <g transform="translate(32, 314)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="14" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="28" y="0" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="42" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="56" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="70" y="0" width="10" height="10" rx="2" fill="#047857"/>
+      <rect x="84" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="98" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="112" y="0" width="10" height="10" rx="2" fill="#34d399"/>
+      <rect x="126" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="140" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="154" y="0" width="10" height="10" rx="2" fill="#10b981"/>
+
+      <!-- Row 2 -->
+      <rect x="0" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="14" y="14" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="28" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="42" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="56" y="14" width="10" height="10" rx="2" fill="#34d399"/>
+      <rect x="70" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="84" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="98" y="14" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="112" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="126" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="140" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="154" y="14" width="10" height="10" rx="2" fill="#10b981"/>
+
+      <!-- Row 3 -->
+      <rect x="0" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="14" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="28" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="42" y="28" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="56" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="70" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="84" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="98" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="112" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="126" y="28" width="10" height="10" rx="2" fill="#34d399"/>
+      <rect x="140" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="154" y="28" width="10" height="10" rx="2" fill="#10b981"/>
+
+      <!-- Row 4 -->
+      <rect x="0" y="42" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="14" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="28" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="42" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="56" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="70" y="42" width="10" height="10" rx="2" fill="#34d399"/>
+      <rect x="84" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="98" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="112" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="126" y="42" width="10" height="10" rx="2" fill="#059669"/>
+      <rect x="140" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+      <rect x="154" y="42" width="10" height="10" rx="2" fill="#10b981"/>
+    </g>
+
+    <!-- Bottom Nav -->
+    <rect x="20" y="396" width="190" height="38" rx="19" fill="#020617" stroke="rgba(255, 255, 255, 0.08)"/>
+    <text x="55" y="418" fill="#64748b" font-size="9" font-weight="600" font-family="system-ui, sans-serif">Today</text>
+    <circle cx="105" cy="415" r="4" fill="#f59e0b"/>
+    <text x="115" y="418" fill="#ffffff" font-size="9" font-weight="700" font-family="system-ui, sans-serif">Focus</text>
+    <text x="175" y="418" fill="#64748b" font-size="9" font-weight="600" font-family="system-ui, sans-serif">Settings</text>
+  </g>
+</svg>

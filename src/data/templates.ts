@@ -348,6 +348,181 @@ Easily connects to Shopify, MedusaJS, Stripe, or custom headless backends.`,
       'Mock Product Dataset (50 items)',
       'Extended Commercial License with Staging Rights'
     ]
+  },
+  {
+    id: 'tpl-005',
+    slug: 'quickbill-offline-pos',
+    name: 'QuickBill — Offline POS & Billing App',
+    tagline: 'Offline-first POS, billing & receipt generator for retail counters',
+    category: 'app',
+    price: 69,
+    originalPrice: 119,
+    rating: 4.94,
+    reviewsCount: 41,
+    salesCount: 162,
+    featured: true,
+    badge: 'Offline POS',
+    shortDescription: 'High-speed offline-first point-of-sale & invoice app with thermal receipt printing (2"/3"), VAT/tax calculation modes, 25 saved items catalog, and instant PDF receipts.',
+    longDescription: `QuickBill POS is an enterprise-grade, offline-first billing and point-of-sale solution engineered for retail shops, cafes, service counters, and small business owners who demand speed, reliability, and zero cloud lock-in.
+
+Built with a local-first architecture powered by Dexie (IndexedDB), QuickBill executes transactions in milliseconds without an active internet connection. It features complete business profile customization (VAT/PAN, header logos, tax IDs), a 25-item quick-pick catalog for high-frequency inventory, real-time flat & percentage discount calculations, and dual VAT/tax handling (disclosed breakdown vs tax included in unit price).
+
+When it comes to hardware dispatch, QuickBill connects seamlessly to portable Bluetooth thermal receipt printers (2-inch and 3-inch rolls) as well as desktop Wi-Fi / USB network printers for standard A4 and A5 invoice receipts via jsPDF and html2canvas. Ready for cross-platform deployment on Android, iOS (via Capacitor), or any modern desktop browser.`,
+    features: [
+      '100% Offline-First Architecture (Zero cloud reliance, Dexie IndexedDB local database)',
+      'Dual VAT / Tax Modes (Full breakdown vs Tax included in prices)',
+      'Multi-Format Thermal Printing (2-inch & 3-inch receipt rolls + A4/A5 PDF invoices)',
+      'Bluetooth & Network Printer Support for POS counter terminals',
+      '25-Item Quick-Pick Catalog for instant line-item addition',
+      'Dynamic Real-time Discounts (Flat cash amount or % percentage)',
+      'Searchable Chronological Bill History with reprint, duplicate & delete',
+      'Business Profile Branding (VAT/PAN, custom logo, contact info, customizable headers)',
+      'Cross-Platform Ready: Android APK, iOS (Capacitor 6), and Standalone Web App'
+    ],
+    detailedFeatures: [
+      {
+        title: 'Local-First Dexie Database',
+        description: 'Zero internet latency. All sales, business profiles, and customer receipts stay securely stored on the device.'
+      },
+      {
+        title: 'Thermal Receipt & A4 Printing Engine',
+        description: 'Supports Bluetooth 58mm/80mm thermal receipt rolls and standard A4/A5 PDF generation with thermal printer formatting.'
+      },
+      {
+        title: 'Flexible Tax & Discount Engine',
+        description: 'Configurable tax rates (e.g. 13% VAT) with single-tap toggle between item-level tax inclusion and bottom-line disclosure.'
+      }
+    ],
+    previewImages: [
+      {
+        url: '/previews/quickbill-web-1.svg',
+        alt: 'QuickBill POS Counter Interface, Tax Calculation & Thermal Roll Preview',
+        caption: 'POS Counter — Active Order, VAT Breakdown & Thermal Roll'
+      },
+      {
+        url: '/previews/quickbill-1.png',
+        alt: 'QuickBill Light Mode Invoicing Screen and Line Items Table',
+        caption: 'Light Interface — Fast Cashier & Line Item Entry'
+      },
+      {
+        url: '/previews/quickbill-2.png',
+        alt: 'QuickBill Dark Mode Countertop Interface for OLED Displays',
+        caption: 'Dark Mode — Countertop OLED Display & Quick Sale'
+      }
+    ],
+    techStack: [
+      { name: 'React 18', category: 'frontend', color: '#61DAFB' },
+      { name: 'Vite', category: 'tooling', color: '#646CFF' },
+      { name: 'TypeScript', category: 'frontend', color: '#3178C6' },
+      { name: 'Tailwind CSS', category: 'styling', color: '#06B6D4' },
+      { name: 'Dexie / IndexedDB', category: 'database', color: '#10B981' },
+      { name: 'Capacitor 6', category: 'tooling', color: '#119EFF' },
+      { name: 'jsPDF / Canvas', category: 'tooling', color: '#EF4444' }
+    ],
+    purchaseLink: 'https://checkout.templestore.dev/quickbill',
+    livePreviewUrl: '/demos/quickbill.html',
+    version: '1.0.0',
+    lastUpdated: 'September 2026',
+    author: {
+      name: 'Sovereign POS Systems',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces',
+      role: 'Retail & Offline POS Architect'
+    },
+    fileSize: '4.8 MB',
+    includedItems: [
+      'Full Vite + React 18 + TypeScript Source Code',
+      'Capacitor 6 Android & iOS Native Project Scaffold',
+      'Standalone Single-File Flat HTML Phone Edition',
+      'Dexie.js IndexedDB Schema & Migration Scripts',
+      'Thermal Receipt & A4 PDF Print Driver Utilities',
+      'Commercial Unlimited Business License',
+      'Lifetime Updates & Free Maintenance'
+    ]
+  },
+  {
+    id: 'tpl-006',
+    slug: 'win-the-day-momentum',
+    name: 'Win the Day — Habit & Momentum Engine',
+    tagline: 'Offline-first 101-point habit scoring, focus timer & momentum tracking PWA',
+    category: 'mobile',
+    price: 45,
+    originalPrice: 79,
+    rating: 4.97,
+    reviewsCount: 38,
+    salesCount: 210,
+    featured: true,
+    badge: 'PWA Engine',
+    shortDescription: 'Calibrated 101-point personal productivity system with streak bonuses, Pomodoro focus timer, 3L water logger, and GitHub-style consistency matrix.',
+    longDescription: `Win the Day is a zero-friction, offline-first personal productivity and habit execution system engineered to eliminate decision fatigue, enforce discipline with a calibrated 101-point scoring formula, and maintain unstoppable daily momentum.
+
+Modeled after modern luxury wellness apps like Bend and Gentler Streak, Win the Day operates on a balanced daily scorecard: 100 base task points + 1 bonus point awarded for consecutive winning streaks. The routine intelligently highlights tasks based on the time of day (Morning Routine → Day Health & Fitness → Deep Work → Evening Wind-Down) with strict accountability penalties (-5 points per missed essential task).
+
+Packed with interactive utilities including a 60-minute background-resilient Pomodoro companion, an interactive 6 x 500ml quick-tap water logger, automated gym rest-day credit logic, and an intelligent 3:00 AM rollover rule that protects night owls and late shifts. Features a 16-week GitHub-style consistency heatmap visualizing your performance tiers. Zero accounts, zero tracking, sub-100ms loading, and 100% offline sovereignty installable straight to your iPhone or Android home screen.`,
+    features: [
+      '100% Offline-First & Private (No logins, no analytics, sub-100ms load time)',
+      'Calibrated 101-Point Daily Formula (100 base + 1 streak bonus)',
+      'Time-Contextual Routine (Auto-highlights Morning, Health, Deep Work, and Evening)',
+      '60-Minute Focus Companion Timer with background resilience & audio fanfare',
+      'Interactive 3L Hydration Logger (6 × 500ml quick-tap increments with sound)',
+      '16-Week GitHub-Style Consistency Matrix & Performance Heatmap',
+      'Gym Rest-Day Logic (Planned recovery days are credited automatically)',
+      'Intelligent 3:00 AM Rollover (Protects night owls and irregular sleep routines)',
+      'PWA Ready: 1-Tap Add to Home Screen on iOS Safari & Android Chrome',
+      'Data Sovereignty: 1-Tap Full JSON Backup Export & Instant Restore'
+    ],
+    detailedFeatures: [
+      {
+        title: '101-Point Calibrated Scoring System',
+        description: '100 points for daily baseline habits + 1 bonus point for continuous winning streaks, with -5 pt deductions for skipped essentials.'
+      },
+      {
+        title: '16-Week Consistency Matrix',
+        description: 'Visual heatmap tracking consistency across 112 days with color tiers for 100+ perfect, 80+ win, and partial days.'
+      },
+      {
+        title: 'Deep Work Companion & Audio Engine',
+        description: 'Built-in 60-minute countdown with synthesized Web Audio haptics and background timer preservation.'
+      }
+    ],
+    previewImages: [
+      {
+        url: '/previews/win-the-day-1.svg',
+        alt: 'Win the Day 101-Point Daily Momentum Dashboard, Routine Checklist and Streak Fire',
+        caption: 'Momentum Dashboard — 101 Daily Points, Streak Fire & Routine'
+      },
+      {
+        url: '/previews/win-the-day-2.svg',
+        alt: 'Win the Day Hydration Logger, Macro Intakes and Offline Architecture',
+        caption: 'Sovereign Architecture — 3L Water Logger & Zero-Cloud Offline Cache'
+      }
+    ],
+    techStack: [
+      { name: 'HTML5 / Modern JS', category: 'frontend', color: '#F7DF1E' },
+      { name: 'PWA / Service Worker', category: 'tooling', color: '#5A0FC8' },
+      { name: 'CSS3 Glassmorphism', category: 'styling', color: '#38BDF8' },
+      { name: 'Web Audio API', category: 'tooling', color: '#10B981' },
+      { name: 'LocalStorage Engine', category: 'database', color: '#F59E0B' },
+      { name: 'Lucide SVG Icons', category: 'styling', color: '#EC4899' }
+    ],
+    purchaseLink: 'https://checkout.templestore.dev/win-the-day',
+    livePreviewUrl: '/demos/win-the-day.html',
+    version: '1.0.0',
+    lastUpdated: 'September 2026',
+    author: {
+      name: 'Discipline Labs',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces',
+      role: 'Productivity Systems Designer'
+    },
+    fileSize: '1.2 MB',
+    includedItems: [
+      'Complete PWA Source Code (HTML, CSS, JS modular architecture)',
+      'Self-Contained Single-File Standalone Mobile Edition',
+      'PWA Service Worker & Manifest Configuration',
+      'Synthesized Web Audio Haptic & Sound Modules',
+      'JSON Backup & Restore Data Engine',
+      'Extended Commercial & Personal Use License',
+      'Lifetime Updates & Roadmap Access'
+    ]
   }
 ];
 

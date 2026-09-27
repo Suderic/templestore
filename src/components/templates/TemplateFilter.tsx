@@ -25,9 +25,10 @@ export function TemplateFilter({
 }: TemplateFilterProps) {
   const categories: { label: string; value: TemplateCategory }[] = [
     { label: 'All Templates', value: 'all' },
+    { label: 'Web Applications', value: 'app' },
+    { label: 'Mobile & PWA Apps', value: 'mobile' },
     { label: 'SaaS & Dashboards', value: 'saas' },
     { label: 'Websites & Portfolios', value: 'website' },
-    { label: 'Mobile & PWA Apps', value: 'mobile' },
   ];
 
   return (

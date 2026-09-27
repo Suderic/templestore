@@ -48,7 +48,7 @@ export function AlderAshNavbar({ activePage, onPageChange, onOpenBooking, device
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#0F2B22]/85 backdrop-blur-xl border-b border-[#F5EFE3]/10 transition-colors">
+    <header className="sticky top-0 z-40 w-full bg-[#0F2B22]/95 backdrop-blur-xl border-b border-[#F5EFE3]/15 shadow-sm transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         
         {/* Brand Logo */}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -27,6 +27,16 @@ export function Navbar() {
   const { user, isAuthenticated, logout, isDevMode, loginAsSeedUser } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -43,7 +53,13 @@ export function Navbar() {
   if (pathname?.startsWith('/demo')) return null;
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-panel border-b border-slate-200/50 dark:border-white/10 transition-colors">
+    <header 
+      className={`sticky top-0 z-40 w-full transition-all duration-200 bg-white/95 dark:bg-[#090d16]/95 backdrop-blur-xl border-b ${
+        isScrolled
+          ? 'border-slate-200/90 dark:border-white/10 shadow-sm shadow-slate-900/5 dark:shadow-black/40'
+          : 'border-slate-200/60 dark:border-white/5'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand Logo */}
@@ -115,7 +131,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 mt-2 w-56 glass-card rounded-2xl border border-white/40 dark:border-white/10 shadow-xl p-2 z-50"
+                    className="absolute right-0 mt-2 w-56 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xl p-2 z-50"
                   >
                     <div className="px-3 py-2 border-b border-slate-200/60 dark:border-white/10 mb-1">
                       <p className="text-xs font-semibold text-slate-900 dark:text-white truncate">
@@ -221,7 +237,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-panel border-b border-slate-200/80 dark:border-white/10 px-4 py-4 space-y-2 overflow-hidden"
+            className="md:hidden bg-white/98 dark:bg-[#090d16]/98 backdrop-blur-2xl border-b border-slate-200/80 dark:border-white/10 px-4 py-4 space-y-2 overflow-hidden shadow-lg"
           >
             {navLinks.map((link) => (
               <Link

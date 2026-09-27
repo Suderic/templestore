@@ -86,3 +86,13 @@ body {
   background: rgba(156, 163, 175, 0.5);
 }
 
+/* Utility to hide scrollbars completely while keeping scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+

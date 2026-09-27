@@ -27,12 +27,15 @@ interface TemplateGalleryProps {
 }
 
 export function TemplateGallery({ template }: TemplateGalleryProps) {
-  // Check if template has an interactive live demo (local Next.js route like /demo/alder-ash)
-  const hasLiveDemo = Boolean(template.livePreviewUrl && template.livePreviewUrl.startsWith('/demo'));
+  const isWebsite = template.category === 'website';
+  const isMobileOnly = template.category === 'mobile' || Boolean((template as any).isMobileOnly);
+  const hasLiveDemo = Boolean(template.livePreviewUrl);
 
   // Default to live interactive mode if available, otherwise screenshots
   const [previewMode, setPreviewMode] = useState<'live' | 'screenshots'>(hasLiveDemo ? 'live' : 'screenshots');
-  const [viewportMode, setViewportMode] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  const [viewportMode, setViewportMode] = useState<'desktop' | 'tablet' | 'mobile'>(
+    isMobileOnly ? 'mobile' : 'desktop'
+  );
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [iframeKey, setIframeKey] = useState(0);
   const [isIframeLoading, setIsIframeLoading] = useState(true);
@@ -40,6 +43,13 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const currentImage = template.previewImages[selectedImageIndex] || template.previewImages[0];
+
+  // Lock viewport to mobile if template is mobile-only
+  useEffect(() => {
+    if (isMobileOnly && viewportMode !== 'mobile') {
+      setViewportMode('mobile');
+    }
+  }, [template.slug, isMobileOnly, viewportMode]);
 
   // Sync device mode to iframe via postMessage whenever viewportMode changes
   useEffect(() => {
@@ -65,6 +75,7 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
 
   // Change device mode with instant postMessage
   const handleDeviceChange = (mode: 'desktop' | 'tablet' | 'mobile') => {
+    if (isMobileOnly) return;
     setViewportMode(mode);
     if (iframeRef.current?.contentWindow) {
       try {
@@ -90,74 +101,86 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
         
         {/* Left: Viewport Size Switcher */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 hidden sm:inline select-none pl-1">
-            Viewport:
-          </span>
-
-          <div className="inline-flex items-center p-0.5 rounded-xl bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/80 dark:border-white/5 shadow-inner">
-            {/* Desktop Button */}
-            <button
-              onClick={() => handleDeviceChange('desktop')}
-              className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
-                viewportMode === 'desktop'
-                  ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
-              }`}
-              title="Desktop View (1280px)"
-            >
-              <Monitor className="w-3.5 h-3.5 shrink-0" />
-              <span>Desktop</span>
-              <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
-                viewportMode === 'desktop' 
-                  ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
-                  : 'text-slate-400 dark:text-slate-500'
-              }`}>
-                1280px
+          {isMobileOnly ? (
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-500/10 dark:bg-purple-950/40 border border-purple-500/25 text-purple-600 dark:text-purple-400 text-xs font-semibold shadow-xs">
+              <Smartphone className="w-3.5 h-3.5 shrink-0 text-purple-500" />
+              <span>Mobile App Only</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-600 dark:text-purple-300 font-bold">
+                390px iPhone Viewport
               </span>
-            </button>
-
-            {/* Tablet Button */}
-            <button
-              onClick={() => handleDeviceChange('tablet')}
-              className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
-                viewportMode === 'tablet'
-                  ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
-              }`}
-              title="Tablet View (768px)"
-            >
-              <Tablet className="w-3.5 h-3.5 shrink-0" />
-              <span>Tablet</span>
-              <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
-                viewportMode === 'tablet' 
-                  ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
-                  : 'text-slate-400 dark:text-slate-500'
-              }`}>
-                768px
+            </div>
+          ) : (
+            <>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 hidden sm:inline select-none pl-1">
+                Viewport:
               </span>
-            </button>
 
-            {/* Mobile Button */}
-            <button
-              onClick={() => handleDeviceChange('mobile')}
-              className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
-                viewportMode === 'mobile'
-                  ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
-              }`}
-              title="Mobile View (390px)"
-            >
-              <Smartphone className="w-3.5 h-3.5 shrink-0" />
-              <span>Mobile</span>
-              <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
-                viewportMode === 'mobile' 
-                  ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
-                  : 'text-slate-400 dark:text-slate-500'
-              }`}>
-                390px
-              </span>
-            </button>
-          </div>
+              <div className="inline-flex items-center p-0.5 rounded-xl bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/80 dark:border-white/5 shadow-inner">
+                {/* Desktop Button */}
+                <button
+                  onClick={() => handleDeviceChange('desktop')}
+                  className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
+                    viewportMode === 'desktop'
+                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+                  }`}
+                  title="Desktop View (1280px)"
+                >
+                  <Monitor className="w-3.5 h-3.5 shrink-0" />
+                  <span>Desktop</span>
+                  <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
+                    viewportMode === 'desktop' 
+                      ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
+                      : 'text-slate-400 dark:text-slate-500'
+                  }`}>
+                    1280px
+                  </span>
+                </button>
+
+                {/* Tablet Button */}
+                <button
+                  onClick={() => handleDeviceChange('tablet')}
+                  className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
+                    viewportMode === 'tablet'
+                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+                  }`}
+                  title="Tablet View (768px)"
+                >
+                  <Tablet className="w-3.5 h-3.5 shrink-0" />
+                  <span>Tablet</span>
+                  <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
+                    viewportMode === 'tablet' 
+                      ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
+                      : 'text-slate-400 dark:text-slate-500'
+                  }`}>
+                    768px
+                  </span>
+                </button>
+
+                {/* Mobile Button */}
+                <button
+                  onClick={() => handleDeviceChange('mobile')}
+                  className={`h-7 px-2.5 rounded-lg text-xs font-medium flex items-center gap-1.5 whitespace-nowrap transition-all cursor-pointer ${
+                    viewportMode === 'mobile'
+                      ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-semibold shadow-xs ring-1 ring-black/5 dark:ring-white/10'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+                  }`}
+                  title="Mobile View (390px)"
+                >
+                  <Smartphone className="w-3.5 h-3.5 shrink-0" />
+                  <span>Mobile</span>
+                  <span className={`text-[10px] font-mono px-1 py-0.2 rounded ${
+                    viewportMode === 'mobile' 
+                      ? 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold' 
+                      : 'text-slate-400 dark:text-slate-500'
+                  }`}>
+                    390px
+                  </span>
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Right: Live vs Screenshots Toggle & Full Demo Action */}
@@ -200,8 +223,8 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
             </div>
           )}
 
-          {/* Action: Open in New Window / Full Screen */}
-          {template.livePreviewUrl && (
+          {/* Action: Open in New Window ONLY for website templates. Apps demo through the preview itself! */}
+          {isWebsite && template.livePreviewUrl ? (
             <a
               href={template.livePreviewUrl}
               target="_blank"
@@ -212,6 +235,17 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
               <span>Full Demo</span>
               <ExternalLink className="w-3.5 h-3.5 shrink-0 text-slate-400 group-hover:text-indigo-600" />
             </a>
+          ) : (
+            hasLiveDemo && previewMode === 'live' && (
+              <button
+                onClick={handleReload}
+                className="h-8 inline-flex items-center gap-1.5 px-3 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-white/10 shadow-xs transition-all whitespace-nowrap shrink-0 cursor-pointer"
+                title="Reset or reload interactive demo session"
+              >
+                <RotateCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-indigo-500' : ''}`} />
+                <span>Restart Demo</span>
+              </button>
+            )
           )}
 
         </div>
@@ -223,13 +257,19 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
         <div className="flex items-center gap-1.5">
           <Info className="w-3 h-3 text-indigo-500 shrink-0" />
           <span>
-            {viewportMode === 'desktop' && 'Viewing full desktop website layout with multi-column grid and full navigation.'}
-            {viewportMode === 'tablet' && 'Viewing 768px tablet layout in an authentic iPad device frame.'}
-            {viewportMode === 'mobile' && 'Viewing 390px mobile layout in an authentic smartphone device frame with mobile drawer & booking bar.'}
+            {isMobileOnly
+              ? 'Viewing native mobile app layout inside an authentic smartphone device frame.'
+              : viewportMode === 'desktop'
+              ? 'Viewing full desktop website layout with multi-column grid and full navigation.'
+              : viewportMode === 'tablet'
+              ? 'Viewing 768px tablet layout in an authentic iPad device frame.'
+              : 'Viewing 390px mobile layout in an authentic smartphone device frame with mobile drawer & booking bar.'}
           </span>
         </div>
         <span className="hidden sm:inline font-mono text-[10px] text-slate-400">
-          {previewMode === 'live' ? '⚡ Interactive Next.js Session' : '📸 High-Resolution Website Captures'}
+          {previewMode === 'live' 
+            ? (isWebsite ? '⚡ Interactive Next.js Session' : '⚡ Interactive Live App Preview') 
+            : '📸 High-Resolution Captures'}
         </span>
       </div>
 
@@ -283,13 +323,13 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
             </div>
 
             {/* Desktop Screen Content Area */}
-            <div className="relative w-full h-[620px] bg-slate-950/90 overflow-hidden flex items-center justify-center">
+            <div className="relative w-full h-[480px] sm:h-[620px] bg-slate-950 overflow-hidden flex items-center justify-center">
               {previewMode === 'live' && hasLiveDemo ? (
                 <>
                   {isIframeLoading && (
-                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#07130D] text-[#F5EFE3] gap-3">
-                      <div className="w-8 h-8 border-2 border-[#D98F4A] border-t-transparent rounded-full animate-spin" />
-                      <p className="text-xs font-serif tracking-wider text-[#D98F4A]">
+                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950 text-slate-100 gap-3">
+                      <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                      <p className="text-xs font-medium tracking-wider text-indigo-400">
                         Loading interactive {template.name}...
                       </p>
                     </div>
@@ -299,7 +339,7 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
                     ref={iframeRef}
                     src={iframeSrc}
                     onLoad={() => setIsIframeLoading(false)}
-                    className="w-full h-full border-0 bg-[#0F2B22]"
+                    className="w-full h-full border-0 bg-slate-900"
                     title={`${template.name} Desktop Live Demo`}
                     loading="lazy"
                   />
@@ -349,13 +389,13 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
               <div className="w-2.5 h-2.5 rounded-full bg-slate-700/80 mx-auto mb-2.5 border border-white/10" />
 
               {/* Tablet Screen */}
-              <div className="relative rounded-[22px] overflow-hidden h-[760px] bg-slate-950 border border-white/10 shadow-inner">
+              <div className="relative rounded-[22px] overflow-hidden h-[520px] sm:h-[680px] bg-slate-950 border border-white/10 shadow-inner">
                 {previewMode === 'live' && hasLiveDemo ? (
                   <>
                     {isIframeLoading && (
-                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#07130D] text-[#F5EFE3] gap-3">
-                        <div className="w-8 h-8 border-2 border-[#D98F4A] border-t-transparent rounded-full animate-spin" />
-                        <p className="text-xs font-serif tracking-wider text-[#D98F4A]">
+                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950 text-slate-100 gap-3">
+                        <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                        <p className="text-xs font-medium tracking-wider text-indigo-400">
                           Simulating iPad Viewport...
                         </p>
                       </div>
@@ -365,7 +405,7 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
                       ref={iframeRef}
                       src={iframeSrc}
                       onLoad={() => setIsIframeLoading(false)}
-                      className="w-full h-full border-0 bg-[#0F2B22]"
+                      className="w-full h-full border-0 bg-slate-900"
                       title={`${template.name} Tablet Live Demo`}
                     />
                   </>
@@ -407,54 +447,82 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.25 }}
-            className="w-[390px] max-w-full mx-auto"
+            className="w-full max-w-[390px] mx-auto"
           >
             {/* iPhone Chassis */}
-            <div className="rounded-[52px] p-2.5 sm:p-3 bg-slate-950 border-[6px] border-slate-700/80 dark:border-slate-800 shadow-2xl shadow-black/80 relative">
+            <div className="rounded-[44px] sm:rounded-[52px] p-2 sm:p-3 bg-slate-950 border-[5px] sm:border-[6px] border-slate-700/80 dark:border-slate-800 shadow-2xl shadow-black/80 relative">
               
-              {/* Dynamic Island Pill at top center */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 w-28 h-6 bg-black rounded-full flex items-center justify-between px-3 border border-white/10 shadow-lg pointer-events-none">
-                <span className="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700" />
-                <span className="w-2 h-2 rounded-full bg-indigo-950/80 border border-indigo-700" />
-              </div>
+              {/* Mobile Screen: Flex column with dedicated iOS Status Bar at top and content below */}
+              <div className="relative rounded-[36px] sm:rounded-[42px] overflow-hidden h-[560px] sm:h-[700px] bg-slate-950 border border-white/10 shadow-inner flex flex-col">
+                
+                {/* Authentic iOS Status Bar - Houses Dynamic Island cleanly so it never obstructs template headers */}
+                <div className="h-10 sm:h-11 w-full bg-slate-950 flex items-center justify-between px-5 select-none shrink-0 border-b border-white/5 z-20">
+                  {/* Left: Standard iOS Time */}
+                  <span className="text-[11px] sm:text-xs font-semibold text-slate-200 tracking-tight pl-1">
+                    9:41
+                  </span>
 
-              {/* Mobile Screen */}
-              <div className="relative rounded-[42px] overflow-hidden h-[760px] bg-slate-950 border border-white/10 shadow-inner">
-                {previewMode === 'live' && hasLiveDemo ? (
-                  <>
-                    {isIframeLoading && (
-                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#07130D] text-[#F5EFE3] gap-3">
-                        <div className="w-8 h-8 border-2 border-[#D98F4A] border-t-transparent rounded-full animate-spin" />
-                        <p className="text-xs font-serif tracking-wider text-[#D98F4A]">
-                          Simulating iPhone Viewport...
-                        </p>
-                      </div>
-                    )}
-                    <iframe
-                      key={iframeKey}
-                      ref={iframeRef}
-                      src={iframeSrc}
-                      onLoad={() => setIsIframeLoading(false)}
-                      className="w-full h-full border-0 bg-[#0F2B22]"
-                      title={`${template.name} Mobile Live Demo`}
-                    />
-                  </>
-                ) : (
-                  <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-slate-950 pt-8">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={currentImage.url}
-                        src={currentImage.url}
-                        alt={currentImage.alt}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="w-full h-full object-contain"
-                      />
-                    </AnimatePresence>
+                  {/* Center: Dynamic Island Pill */}
+                  <div className="w-24 sm:w-28 h-5 sm:h-5.5 bg-black rounded-full flex items-center justify-between px-2.5 sm:px-3 border border-white/15 shadow-sm">
+                    <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-slate-900 border border-slate-700" />
+                    <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-indigo-950/80 border border-indigo-700" />
                   </div>
-                )}
+
+                  {/* Right: iOS System Indicators (Cellular, WiFi, Battery) */}
+                  <div className="flex items-center gap-1.5 text-slate-200 pr-1">
+                    {/* Cellular signal bars */}
+                    <svg className="w-3.5 h-3.5 fill-current opacity-90" viewBox="0 0 24 24">
+                      <path d="M2 17h3v4H2v-4zm6-5h3v9H8v-9zm6-5h3v14h-3V7zm6-5h3v19h-3V2z" />
+                    </svg>
+                    {/* WiFi icon */}
+                    <svg className="w-3.5 h-3.5 fill-current opacity-90" viewBox="0 0 24 24">
+                      <path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 4c3.42 0 6.55 1.29 8.95 3.42L12 19.34 3.05 11.42A12.92 12.92 0 0112 8z" />
+                    </svg>
+                    {/* Battery indicator */}
+                    <div className="w-5 h-2.5 border border-slate-200/90 rounded-[3px] p-[1px] flex items-center">
+                      <div className="h-full w-3.5 bg-slate-200 rounded-[1px]" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Viewport Screen Content (Iframe / Screenshots) */}
+                <div className="flex-1 w-full relative overflow-hidden bg-slate-900">
+                  {previewMode === 'live' && hasLiveDemo ? (
+                    <>
+                      {isIframeLoading && (
+                        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-slate-950 text-slate-100 gap-3">
+                          <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin" />
+                          <p className="text-xs font-medium tracking-wider text-indigo-400">
+                            Simulating iPhone Viewport...
+                          </p>
+                        </div>
+                      )}
+                      <iframe
+                        key={iframeKey}
+                        ref={iframeRef}
+                        src={iframeSrc}
+                        onLoad={() => setIsIframeLoading(false)}
+                        className="w-full h-full border-0 bg-slate-900"
+                        title={`${template.name} Mobile Live Demo`}
+                      />
+                    </>
+                  ) : (
+                    <div className="w-full h-full relative overflow-hidden flex items-center justify-center bg-slate-950">
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={currentImage.url}
+                          src={currentImage.url}
+                          alt={currentImage.alt}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="w-full h-full object-contain"
+                        />
+                      </AnimatePresence>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Mobile Home Bar Indicator */}
@@ -463,14 +531,14 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
 
             {/* Mobile Viewport Label */}
             <div className="mt-2 text-center text-xs text-slate-400 font-mono">
-              Apple iPhone 16 Pro Viewport • 390 × 844 (Portrait Simulated)
+              Apple iPhone 16 Pro Viewport • 390 × 844 (Interactive Mobile App Preview)
             </div>
           </motion.div>
         )}
 
       </div>
 
-      {/* 3. THUMBNAILS STRIP (For browsing all website page views and photography) */}
+      {/* 3. THUMBNAILS STRIP (For browsing all template views) */}
       <div className="space-y-2 pt-2">
         <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
           <span className="font-semibold flex items-center gap-1.5">
@@ -492,7 +560,7 @@ export function TemplateGallery({ template }: TemplateGalleryProps) {
                   setSelectedImageIndex(idx);
                   setPreviewMode('screenshots');
                 }}
-                className={`relative group shrink-0 w-36 h-22 rounded-xl overflow-hidden border-2 transition-all cursor-pointer text-left ${
+                className={`relative group shrink-0 w-32 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 transition-all cursor-pointer text-left ${
                   isSelected
                     ? 'border-indigo-500 shadow-lg shadow-indigo-500/30 scale-105 ring-2 ring-indigo-500/20'
                     : 'border-white/40 dark:border-white/10 opacity-75 hover:opacity-100 hover:border-slate-400'

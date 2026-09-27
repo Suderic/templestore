@@ -19,7 +19,7 @@ export const SEED_USERS: (User & { passwordHash: string })[] = [
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces',
     role: 'user',
     joinedDate: 'September 02, 2026',
-    purchasedTemplateIds: ['tpl-004']
+    purchasedTemplateIds: ['tpl-003']
   }
 ];
 
@@ -38,26 +38,26 @@ export const INITIAL_PURCHASES: PurchaseRecord[] = [
   },
   {
     id: 'pur-102',
-    orderNumber: 'ORD-7231-AU',
+    orderNumber: 'ORD-7231-QB',
     templateId: 'tpl-002',
-    templateName: 'Aura Studio & Agency',
-    amount: 49,
+    templateName: 'QuickBill — Modern Cloud POS & Billing App',
+    amount: 69,
     date: 'Sep 20, 2026',
     paymentMethod: 'Credit Card',
     status: 'completed',
-    licenseKey: 'AURA-STD-7231-11E9-09BC',
+    licenseKey: 'QKBILL-PRO-7231-11E9-09BC',
     downloadUrl: '#'
   },
   {
     id: 'pur-103',
-    orderNumber: 'ORD-5541-AP',
-    templateId: 'tpl-004',
-    templateName: 'Apex Modern E-Commerce',
-    amount: 89,
+    orderNumber: 'ORD-5541-WD',
+    templateId: 'tpl-003',
+    templateName: 'Win the Day — Cloud Habit & Momentum Engine',
+    amount: 49,
     date: 'Aug 28, 2026',
     paymentMethod: 'Direct Checkout',
     status: 'completed',
-    licenseKey: 'APEX-EXT-5541-66C0-128D',
+    licenseKey: 'WTD-MOM-5541-66C0-128D',
     downloadUrl: '#'
   }
 ];

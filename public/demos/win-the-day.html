@@ -6,11 +6,11 @@
   <title>Win the Day</title>
   
   <!-- PWA & Mobile App Meta -->
-  <meta name="description" content="Offline-first personal productivity and habit scoring engine.">
+  <meta name="description" content="Online personal productivity and habit scoring engine with multi-device cloud synchronization.">
   <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Win the Day">
+  <meta name="apple-mobile-web-app-title" content="Win the Day Cloud">
   
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,6 +74,7 @@
   --radius-full: 9999px;
   
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 16px);
   --header-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 245, 253, 0.92) 50%, rgba(238, 242, 255, 0.94) 100%);
 }
@@ -162,7 +163,7 @@ body {
    TOP HEADER & MODERN TITLE BAR WITH THEME TOGGLE
    ========================================================================== */
 .top-header {
-  padding: 16px 20px 14px;
+  padding: calc(14px + var(--safe-top, 0px)) 16px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,8 +176,16 @@ body {
   border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+  gap: 10px;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-date-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
 }
 
 [data-theme="dark"] .header-date-group h1 {
@@ -192,46 +201,56 @@ body {
 }
 
 .header-date-group h1 {
-  font-size: 1.28rem;
+  font-size: 1.12rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-date-group p {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-top: 2px;
-  letter-spacing: -0.005em;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-badges {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  flex-shrink: 0;
 }
 
 .streak-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   background: var(--accent-amber-light);
   border: 1px solid rgba(245, 158, 11, 0.3);
   color: #d97706;
-  padding: 5px 11px;
+  padding: 4px 8px;
   border-radius: var(--radius-full);
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12);
+  box-shadow: 0 1px 4px rgba(245, 158, 11, 0.1);
+  white-space: nowrap;
 }
 
-/* Modern Header Theme Toggle Button */
-.header-theme-toggle-btn {
-  width: 36px;
-  height: 36px;
+/* Modern Header Icon Buttons (Compact 30x30) */
+.header-icon-btn {
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
@@ -240,61 +259,40 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
+  padding: 0;
 }
 
-.header-theme-toggle-btn:hover {
+.header-icon-btn:hover {
   background: var(--bg-elevated-hover);
   transform: scale(1.05);
 }
 
-.header-theme-toggle-btn:active {
+.header-icon-btn:active {
   transform: scale(0.92);
 }
 
-.header-history-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  font-size: 0.76rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.header-history-btn:hover {
-  background: var(--bg-elevated-hover);
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
-  transform: scale(1.03);
-}
-
 .header-avatar-btn {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, #0284c7, #6366f1);
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--bg-card);
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  border: 1.5px solid var(--bg-card);
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
 }
 
 .header-avatar-btn:hover {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 /* Save Status Banner */
@@ -349,8 +347,8 @@ body {
    GENTLER STREAK RADIANT AURA HERO PROGRESS CARD
    ========================================================================== */
 .hero-progress-card {
-  margin: 14px 20px 18px;
-  padding: 22px;
+  margin: 10px 14px 12px;
+  padding: 12px 14px;
   background: radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.12) 0%, transparent 60%),
               radial-gradient(circle at 10% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 60%),
               var(--bg-card);
@@ -359,10 +357,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 10px;
 }
 
 .hero-progress-card.is-won {
@@ -375,33 +374,34 @@ body {
 
 .hero-text-block {
   flex: 1;
+  min-width: 0;
 }
 
 .hero-label {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--text-secondary);
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .hero-score-display {
   display: flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 4px;
 }
 
 .hero-current-pts {
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .hero-max-pts {
-  font-size: 1.08rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
   font-weight: 600;
 }
@@ -409,16 +409,20 @@ body {
 .hero-status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  padding: 5px 12px;
+  gap: 4px;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
   border-radius: var(--radius-full);
   background: var(--bg-elevated);
   color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
   letter-spacing: -0.005em;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: all 0.25s ease;
 }
 
@@ -431,8 +435,8 @@ body {
 
 /* Circular Progress Ring */
 .progress-ring-container {
-  width: 90px;
-  height: 90px;
+  width: 66px;
+  height: 66px;
   position: relative;
   display: flex;
   align-items: center;
@@ -448,13 +452,13 @@ body {
 
 .progress-ring-bg {
   stroke: var(--bg-elevated);
-  stroke-width: 7;
+  stroke-width: 6;
   fill: transparent;
 }
 
 .progress-ring-fill {
   stroke: var(--accent-emerald);
-  stroke-width: 7;
+  stroke-width: 6;
   fill: transparent;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.65s cubic-bezier(0.4, 0, 0.2, 1);
@@ -462,7 +466,7 @@ body {
 
 .progress-ring-text {
   position: absolute;
-  font-size: 1.05rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.02em;
@@ -472,86 +476,158 @@ body {
    BEND PILLOWY HABIT CARDS & SQUIRCLE ICONS
    ========================================================================== */
 .section-container {
-  padding: 0 20px;
-  margin-bottom: 22px;
+  padding: 0 14px;
+  margin-bottom: 14px;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   padding: 0 2px;
 }
 
+/* Atmospheric Section Banners */
+.section-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.section-banner-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-banner-sub {
+  font-size: 0.65rem;
+  opacity: 0.85;
+  margin-top: 1px;
+}
+
+.section-banner.banner-morning {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.65) 0%, rgba(255, 237, 213, 0.55) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+[data-theme="dark"] .section-banner.banner-morning {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.3) 0%, rgba(154, 52, 18, 0.2) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.section-banner.banner-health {
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.65) 0%, rgba(204, 251, 241, 0.55) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+[data-theme="dark"] .section-banner.banner-health {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.3) 0%, rgba(19, 78, 74, 0.2) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.section-banner.banner-focus {
+  background: linear-gradient(135deg, rgba(238, 242, 255, 0.65) 0%, rgba(243, 232, 255, 0.55) 100%);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+[data-theme="dark"] .section-banner.banner-focus {
+  background: linear-gradient(135deg, rgba(49, 46, 129, 0.3) 0%, rgba(88, 28, 135, 0.2) 100%);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.section-banner.banner-evening {
+  background: linear-gradient(135deg, rgba(243, 232, 255, 0.65) 0%, rgba(238, 242, 255, 0.55) 100%);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+[data-theme="dark"] .section-banner.banner-evening {
+  background: linear-gradient(135deg, rgba(76, 29, 149, 0.3) 0%, rgba(30, 27, 75, 0.22) 100%);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.section-banner.banner-custom {
+  background: linear-gradient(135deg, rgba(255, 228, 230, 0.65) 0%, rgba(254, 243, 199, 0.55) 100%);
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
 .section-title {
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.06em;
   color: var(--text-secondary);
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .section-icon-badge {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .section-icon-badge.morning {
-  background: rgba(245, 158, 11, 0.14);
+  background: rgba(245, 158, 11, 0.18);
   color: #d97706;
 }
 
 .section-icon-badge.health {
-  background: rgba(16, 185, 129, 0.14);
+  background: rgba(16, 185, 129, 0.18);
   color: #059669;
 }
 
 .section-icon-badge.focus {
-  background: rgba(99, 102, 241, 0.14);
+  background: rgba(99, 102, 241, 0.18);
   color: #6366f1;
 }
 
 .section-icon-badge.evening {
-  background: rgba(139, 92, 246, 0.14);
+  background: rgba(139, 92, 246, 0.18);
   color: #8b5cf6;
 }
 
 .section-badge {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: var(--text-secondary);
   background: var(--bg-elevated);
-  padding: 3px 9px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 /* Bend Pillowy Task Card */
 .task-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
 }
 
 .task-card:hover {
@@ -564,40 +640,115 @@ body {
 }
 
 .task-card.completed {
-  border-color: rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.4);
   background: linear-gradient(135deg, var(--bg-card) 60%, var(--accent-emerald-light));
 }
 
 .task-card.rest-day {
-  border-color: rgba(2, 132, 199, 0.3);
+  border-color: rgba(2, 132, 199, 0.35);
   background: linear-gradient(135deg, var(--bg-card) 60%, var(--accent-blue-light));
 }
 
 .task-main-content {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   flex: 1;
+  min-width: 0;
 }
 
-/* Category Squircles (Bend Style) */
+/* Habit Image Thumbnail Container */
+.task-thumb-container {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .task-thumb-container {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.task-thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.task-card:hover .task-thumb-image {
+  transform: scale(1.08);
+}
+
+.task-thumb-overlay-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 6px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .task-thumb-overlay-badge {
+  background: rgba(15, 23, 42, 0.94);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Time pill */
+.task-time-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.09);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  letter-spacing: -0.01em;
+}
+
+[data-theme="dark"] .task-time-pill {
+  background: rgba(99, 102, 241, 0.18);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+}
+
+/* Category Squircles (Fallback if no image) */
 .task-icon-wrapper {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background-color: var(--bg-elevated);
   color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 1.05rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .task-card.completed .task-icon-wrapper {
   background: var(--accent-emerald);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
 }
 
 /* Category Specific Squircle Tints */
@@ -629,15 +780,19 @@ body {
 .task-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
   flex: 1;
+  min-width: 0;
 }
 
 .task-name {
-  font-size: 0.94rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .task-card.completed .task-name {
@@ -645,36 +800,37 @@ body {
 }
 
 .task-meta {
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-weight: 500;
+  flex-wrap: wrap;
 }
 
 .task-points-pill {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #047857;
   background: var(--accent-emerald-light);
   border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 2px 8px;
+  padding: 1px 6px;
   border-radius: var(--radius-full);
 }
 
 /* Tactile Spring Checkbox (Bend & Gentler Streak) */
 .custom-checkbox-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  border: 2px solid var(--border-subtle);
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-subtle);
   background: var(--bg-card);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   flex-shrink: 0;
   color: transparent;
 }
@@ -692,59 +848,102 @@ body {
   background: var(--accent-emerald);
   border-color: var(--accent-emerald);
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
 }
 
 /* Water Tracker Liquid Droplets */
 .water-tracker-block {
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 8px;
+  padding-top: 8px;
   border-top: 1px dashed var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
   width: 100%;
 }
 
 .water-bubbles-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  gap: 5px;
 }
 
 .water-bubble-btn {
-  height: 40px;
+  height: 32px;
   border-radius: var(--radius-sm);
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .water-bubble-btn:hover {
   background: #e0f2fe;
   color: #0284c7;
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .water-bubble-btn.filled {
   background: linear-gradient(135deg, #0284c7, #0ea5e9);
   color: #ffffff;
   border-color: #0284c7;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
   transform: scale(1.02);
+}
+
+/* Macro Tracker Inline Controls */
+.macro-progress-container {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.macro-stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.macro-mini-pill {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.macro-mini-label {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+.macro-mini-value {
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 /* Focus Timer Inline Controls */
 .timer-interactive-block {
-  margin-top: 12px;
-  padding: 12px 16px;
+  margin-top: 8px;
+  padding: 8px 12px;
   border-top: 1px dashed var(--border-subtle);
   display: flex;
   align-items: center;
@@ -755,20 +954,20 @@ body {
 
 .timer-countdown-display {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .timer-btn-group {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .btn-timer {
-  padding: 8px 16px;
-  font-size: 0.8rem;
+  padding: 6px 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   border-radius: var(--radius-full);
   border: none;
@@ -780,12 +979,12 @@ body {
 .btn-timer-primary {
   background: linear-gradient(135deg, #0284c7, #6366f1);
   color: white;
-  box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
 }
 
 .btn-timer-primary:hover {
-  transform: scale(1.04);
-  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
 }
 
 .btn-timer-secondary {
@@ -907,29 +1106,74 @@ body {
 }
 
 .stat-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
   padding: 18px;
   box-shadow: var(--shadow-sm);
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.stat-card.stat-streak {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.85) 0%, rgba(254, 215, 170, 0.7) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(245, 158, 11, 0.2);
+}
+[data-theme="dark"] .stat-card.stat-streak {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.35) 0%, rgba(154, 52, 18, 0.25) 100%);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(245, 158, 11, 0.15);
+}
+
+.stat-card.stat-best {
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.85) 0%, rgba(186, 230, 253, 0.7) 100%);
+  border: 1px solid rgba(2, 132, 199, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(2, 132, 199, 0.2);
+}
+[data-theme="dark"] .stat-card.stat-best {
+  background: linear-gradient(135deg, rgba(12, 74, 110, 0.35) 0%, rgba(3, 105, 161, 0.25) 100%);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(2, 132, 199, 0.15);
+}
+
+.stat-card.stat-winrate {
+  background: linear-gradient(135deg, rgba(209, 250, 229, 0.85) 0%, rgba(167, 243, 208, 0.7) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.2);
+}
+[data-theme="dark"] .stat-card.stat-winrate {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.35) 0%, rgba(4, 120, 87, 0.25) 100%);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(16, 185, 129, 0.15);
+}
+
+.stat-card.stat-lifetime {
+  background: linear-gradient(135deg, rgba(238, 242, 255, 0.85) 0%, rgba(224, 231, 255, 0.7) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(99, 102, 241, 0.2);
+}
+[data-theme="dark"] .stat-card.stat-lifetime {
+  background: linear-gradient(135deg, rgba(49, 46, 129, 0.35) 0%, rgba(67, 56, 202, 0.25) 100%);
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 6px 20px -4px rgba(99, 102, 241, 0.15);
 }
 
 .stat-label {
   font-size: 0.72rem;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .stat-num {
-  font-size: 1.55rem;
+  font-size: 1.6rem;
   font-weight: 800;
   margin-top: 6px;
   letter-spacing: -0.03em;
@@ -1578,18 +1822,95 @@ body {
 
 .habit-rate-track {
   width: 100%;
-  height: 8px;
+  height: 10px;
   background: var(--bg-elevated);
   border-radius: var(--radius-full);
   overflow: hidden;
   margin-top: 6px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .habit-rate-fill {
   height: 100%;
-  background: linear-gradient(90deg, #10b981, #059669);
+  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 45%, #10b981 100%);
   border-radius: var(--radius-full);
-  transition: width 0.5s ease;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Image Preset Grid in Modal */
+.image-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preset-img-btn {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--border-subtle);
+  cursor: pointer;
+  padding: 0;
+  background: var(--bg-elevated);
+  position: relative;
+  aspect-ratio: 1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preset-img-btn:hover {
+  transform: scale(1.05);
+  border-color: #6366f1;
+}
+
+.preset-img-btn.active {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+  transform: scale(1.04);
+}
+
+.preset-img-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preset-img-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.72);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 2px 3px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  backdrop-filter: blur(4px);
+}
+
+.modal-section-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.modal-section-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 </style>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🔥%3C/text%3E%3C/svg%3E">
@@ -1668,6 +1989,449 @@ body {
 
   <!-- Regular script tag - works 100% offline & directly on file:// without CORS barriers -->
   <script>
+
+/* --- js/db.js --- */
+/**
+ * Win the Day - Local Database & State Persistence Layer
+ * Offline-first, Zero-latency, LocalStorage / IndexedDB with automatic schema migration
+ */
+
+const DB_KEY_PREFIX = 'wtd_';
+const DB_VERSION = 1;
+
+export const DEFAULT_SETTINGS = {
+  targetWakeTime: '06:00',
+  targetBedTime: '22:30',
+  gymRestDays: [0, 3], // 0 = Sunday, 3 = Wednesday
+  rolloverHour: 3,     // 3:00 AM rollover
+  winThreshold: 80,    // Points needed to win the day
+  soundEnabled: true,
+  hapticsEnabled: true,
+  theme: 'oled',       // 'oled' (pure black) | 'charcoal' (dark slate)
+  waterTargetMl: 3000,
+  waterStepMl: 500,
+  projectTimerMinutes: 60,
+  installedDate: new Date().toISOString()
+};
+
+export const TASK_DEFINITIONS = [
+  {
+    id: 'wake_up',
+    name: 'Wake Up Early',
+    category: 'morning',
+    points: 15,
+    isEssential: true,
+    type: 'time_check',
+    timeKey: 'targetWakeTime',
+    icon: 'sunrise',
+    description: 'Wake up at or before target time'
+  },
+  {
+    id: 'make_bed',
+    name: 'Make Bed & Clean Room',
+    category: 'morning',
+    points: 10,
+    isEssential: true,
+    type: 'binary',
+    icon: 'sparkles',
+    description: 'Tidy environment, clear mind'
+  },
+  {
+    id: 'drink_water',
+    name: 'Drink 3L Water',
+    category: 'health',
+    points: 10,
+    isEssential: true,
+    type: 'increment',
+    targetValue: 3000,
+    unit: 'ml',
+    icon: 'droplet',
+    description: 'Hydration milestone (6 x 500ml)'
+  },
+  {
+    id: 'protein_calories',
+    name: 'Hit Protein & Calorie Goal',
+    category: 'health',
+    points: 10,
+    isEssential: true,
+    type: 'binary',
+    icon: 'utensils',
+    description: 'Fuel muscle recovery & metabolism'
+  },
+  {
+    id: 'workout',
+    name: 'Work Out',
+    category: 'fitness',
+    points: 20,
+    isEssential: true,
+    type: 'flexible_schedule',
+    scheduledDaysTarget: 5,
+    icon: 'dumbbell',
+    description: 'Strength or cardio session (Rest days credited)'
+  },
+  {
+    id: 'personal_project',
+    name: 'Personal Project (1 Hour)',
+    category: 'deep_work',
+    points: 20,
+    isEssential: true,
+    type: 'timer',
+    targetMinutes: 60,
+    icon: 'code',
+    description: 'Focused deep work without distraction'
+  },
+  {
+    id: 'sleep_on_time',
+    name: 'Sleep on Time',
+    category: 'evening',
+    points: 15,
+    isEssential: true,
+    type: 'time_check',
+    timeKey: 'targetBedTime',
+    icon: 'moon',
+    description: 'In bed at or before target time'
+  }
+];
+
+export class Database {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    if (!localStorage.getItem(this._k('settings'))) {
+      this.saveSettings(DEFAULT_SETTINGS);
+    }
+    if (!localStorage.getItem(this._k('lifetime_stats'))) {
+      this.saveLifetimeStats({
+        lifetimePoints: 0,
+        currentStreak: 0,
+        bestStreak: 0,
+        totalDaysWon: 0,
+        totalDaysTracked: 0
+      });
+    }
+    if (!localStorage.getItem(this._k('tasks'))) {
+      localStorage.setItem(this._k('tasks'), JSON.stringify(TASK_DEFINITIONS));
+    }
+  }
+
+  _k(key) {
+    return `${DB_KEY_PREFIX}${key}`;
+  }
+
+  // --- Settings ---
+  getSettings() {
+    try {
+      const data = localStorage.getItem(this._k('settings'));
+      return data ? { ...DEFAULT_SETTINGS, ...JSON.parse(data) } : DEFAULT_SETTINGS;
+    } catch {
+      return DEFAULT_SETTINGS;
+    }
+  }
+
+  saveSettings(settings) {
+    localStorage.setItem(this._k('settings'), JSON.stringify(settings));
+  }
+
+  // --- Tasks ---
+  getTasks() {
+    try {
+      const data = localStorage.getItem(this._k('tasks'));
+      return data ? JSON.parse(data) : TASK_DEFINITIONS;
+    } catch {
+      return TASK_DEFINITIONS;
+    }
+  }
+
+  // --- Date Calculation based on Rollover Hour ---
+  getEffectiveDate(dateObj = new Date()) {
+    const settings = this.getSettings();
+    const rolloverHour = settings.rolloverHour ?? 3;
+    const workingDate = new Date(dateObj);
+
+    // If current local hour is before rollover hour (e.g. 1:30 AM < 3:00 AM),
+    // it belongs to the previous calendar day.
+    if (workingDate.getHours() < rolloverHour) {
+      workingDate.setDate(workingDate.getDate() - 1);
+    }
+
+    const year = workingDate.getFullYear();
+    const month = String(workingDate.getMonth() + 1).padStart(2, '0');
+    const day = String(workingDate.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  // --- Daily Logs ---
+  getDailyLog(dateStr) {
+    const raw = localStorage.getItem(this._k(`log_${dateStr}`));
+    if (raw) {
+      try {
+        return JSON.parse(raw);
+      } catch (e) {
+        console.error('Failed to parse daily log', e);
+      }
+    }
+    return this._createInitialDailyLog(dateStr);
+  }
+
+  _createInitialDailyLog(dateStr) {
+    const dateObj = new Date(`${dateStr}T12:00:00`);
+    const dayOfWeek = dateObj.getDay();
+    const settings = this.getSettings();
+    const isRestDay = (settings.gymRestDays || []).includes(dayOfWeek);
+
+    const taskStates = {};
+    TASK_DEFINITIONS.forEach(task => {
+      if (task.id === 'workout' && isRestDay) {
+        // Rest day gets automatically credited
+        taskStates[task.id] = {
+          completed: true,
+          isRestDay: true,
+          value: 0,
+          points: task.points,
+          completedAt: null,
+          note: 'Scheduled Rest Day'
+        };
+      } else {
+        taskStates[task.id] = {
+          completed: false,
+          isRestDay: false,
+          value: 0,
+          points: 0,
+          completedAt: null,
+          note: ''
+        };
+      }
+    });
+
+    const initialLog = {
+      date: dateStr,
+      taskStates,
+      waterMl: 0,
+      timerSeconds: 0,
+      wakeTimeLogged: null,
+      bedTimeLogged: null,
+      basePointsEarned: isRestDay ? 20 : 0,
+      streakBonusEarned: 0,
+      penaltiesIncurred: 0,
+      totalPoints: isRestDay ? 20 : 0,
+      isWon: false,
+      notes: '',
+      updatedAt: new Date().toISOString()
+    };
+
+    this.saveDailyLog(dateStr, initialLog);
+    return initialLog;
+  }
+
+  saveDailyLog(dateStr, logData) {
+    logData.updatedAt = new Date().toISOString();
+    localStorage.setItem(this._k(`log_${dateStr}`), JSON.stringify(logData));
+    
+    // Maintain index of logged dates
+    const dateIndex = this.getDateIndex();
+    if (!dateIndex.includes(dateStr)) {
+      dateIndex.push(dateStr);
+      dateIndex.sort();
+      localStorage.setItem(this._k('date_index'), JSON.stringify(dateIndex));
+    }
+  }
+
+  getDateIndex() {
+    try {
+      const raw = localStorage.getItem(this._k('date_index'));
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  getAllDailyLogs() {
+    const dates = this.getDateIndex();
+    return dates.map(d => this.getDailyLog(d));
+  }
+
+  // --- Lifetime & Streak Stats ---
+  getLifetimeStats() {
+    try {
+      const raw = localStorage.getItem(this._k('lifetime_stats'));
+      return raw ? JSON.parse(raw) : {
+        lifetimePoints: 0,
+        currentStreak: 0,
+        bestStreak: 0,
+        totalDaysWon: 0,
+        totalDaysTracked: 0
+      };
+    } catch {
+      return {
+        lifetimePoints: 0,
+        currentStreak: 0,
+        bestStreak: 0,
+        totalDaysWon: 0,
+        totalDaysTracked: 0
+      };
+    }
+  }
+
+  saveLifetimeStats(stats) {
+    localStorage.setItem(this._k('lifetime_stats'), JSON.stringify(stats));
+  }
+
+  // --- Full Backup & Export/Import ---
+  exportFullBackup() {
+    const backup = {
+      version: DB_VERSION,
+      exportTimestamp: new Date().toISOString(),
+      settings: this.getSettings(),
+      lifetimeStats: this.getLifetimeStats(),
+      tasks: this.getTasks(),
+      dateIndex: this.getDateIndex(),
+      logs: {}
+    };
+
+    backup.dateIndex.forEach(date => {
+      backup.logs[date] = this.getDailyLog(date);
+    });
+
+    return JSON.stringify(backup, null, 2);
+  }
+
+  importFullBackup(jsonString) {
+    try {
+      const backup = JSON.parse(jsonString);
+      if (!backup.version || !backup.settings) {
+        throw new Error('Invalid backup schema');
+      }
+
+      this.saveSettings(backup.settings);
+      if (backup.lifetimeStats) this.saveLifetimeStats(backup.lifetimeStats);
+      if (backup.tasks) localStorage.setItem(this._k('tasks'), JSON.stringify(backup.tasks));
+      
+      if (Array.isArray(backup.dateIndex)) {
+        localStorage.setItem(this._k('date_index'), JSON.stringify(backup.dateIndex));
+      }
+
+      if (backup.logs) {
+        Object.entries(backup.logs).forEach(([date, log]) => {
+          localStorage.setItem(this._k(`log_${date}`), JSON.stringify(log));
+        });
+      }
+
+      return { success: true, message: `Imported ${backup.dateIndex?.length || 0} days of history successfully.` };
+    } catch (err) {
+      return { success: false, message: err.message };
+    }
+  }
+
+  // --- Demo / Sample Data Seeder for Visualizing Analytics ---
+  seedSampleHistory(days = 30) {
+    const today = new Date();
+    const settings = this.getSettings();
+
+    for (let i = days; i >= 1; i--) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const dateStr = `${year}-${month}-${day}`;
+
+      const dayOfWeek = d.getDay();
+      const isRestDay = (settings.gymRestDays || []).includes(dayOfWeek);
+
+      // Random realistic completion rate (85% high performance, 15% partial)
+      const isGoodDay = Math.random() > 0.15;
+      const taskStates = {};
+
+      let earnedPoints = 0;
+      let missedEssential = 0;
+
+      TASK_DEFINITIONS.forEach(task => {
+        let done = false;
+        if (task.id === 'workout' && isRestDay) {
+          done = true;
+          taskStates[task.id] = { completed: true, isRestDay: true, value: 0, points: task.points, note: 'Rest Day' };
+        } else {
+          done = isGoodDay ? (Math.random() > 0.08) : (Math.random() > 0.5);
+          taskStates[task.id] = {
+            completed: done,
+            isRestDay: false,
+            value: task.id === 'drink_water' ? (done ? 3000 : 1500) : (task.id === 'personal_project' ? (done ? 60 : 30) : 0),
+            points: done ? task.points : 0
+          };
+        }
+
+        if (done) {
+          earnedPoints += task.points;
+        } else if (task.isEssential) {
+          missedEssential++;
+        }
+      });
+
+      const penalties = missedEssential * 5;
+      const isWon = earnedPoints >= (settings.winThreshold || 80);
+      const streakBonus = isWon ? 1 : 0;
+      const totalPoints = Math.max(0, earnedPoints + streakBonus - penalties);
+
+      const log = {
+        date: dateStr,
+        taskStates,
+        waterMl: taskStates['drink_water']?.value || 0,
+        timerSeconds: (taskStates['personal_project']?.value || 0) * 60,
+        wakeTimeLogged: isGoodDay ? '05:45' : '07:30',
+        bedTimeLogged: isGoodDay ? '22:15' : '23:45',
+        basePointsEarned: earnedPoints,
+        streakBonusEarned: streakBonus,
+        penaltiesIncurred: penalties,
+        totalPoints: totalPoints,
+        isWon: isWon,
+        notes: isWon ? 'Crushed it!' : 'Missed water & sleep',
+        updatedAt: new Date().toISOString()
+      };
+
+      this.saveDailyLog(dateStr, log);
+    }
+
+    // Recompute streak & lifetime stats
+    return this.recalculateLifetimeStats();
+  }
+
+  recalculateLifetimeStats() {
+    const dates = this.getDateIndex().sort();
+    let currentStreak = 0;
+    let bestStreak = 0;
+    let lifetimePoints = 0;
+    let totalDaysWon = 0;
+
+    dates.forEach(dateStr => {
+      const log = this.getDailyLog(dateStr);
+      lifetimePoints += (log.totalPoints || 0);
+
+      if (log.isWon) {
+        currentStreak++;
+        totalDaysWon++;
+        if (currentStreak > bestStreak) {
+          bestStreak = currentStreak;
+        }
+      } else {
+        currentStreak = 0;
+      }
+    });
+
+    const stats = {
+      lifetimePoints,
+      currentStreak,
+      bestStreak,
+      totalDaysWon,
+      totalDaysTracked: dates.length
+    };
+    this.saveLifetimeStats(stats);
+    return stats;
+  }
+}
+
+/* --- js/app.js --- */
 /**
  * WIN THE DAY - Personal Productivity & Offline Habit Engine
  * Clean Production Build
@@ -3756,8 +4520,26 @@ body {
       points: 15,
       isEssential: true,
       type: 'time_check',
+      icon: '☀️',
+      imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '06:00',
+      hasScheduledTime: true,
       iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m4.93 10.93 2.83-2.83"/><path d="M2 18h4"/><path d="M18 18h4"/><path d="m16.24 8.1 2.83 2.83"/><path d="M22 22H2"/><path d="M8 22v-4a4 4 0 0 1 8 0v4"/></svg>`,
-      description: 'Wake up at or before target time'
+      description: 'Wake up at or before target time (06:00)'
+    },
+    {
+      id: 'make_bed',
+      name: 'Make Bed & Clean Room',
+      category: 'morning',
+      points: 14,
+      isEssential: true,
+      type: 'binary',
+      icon: '✨',
+      imageUrl: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '06:30',
+      hasScheduledTime: true,
+      iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/></svg>`,
+      description: 'Tidy environment, clear mind'
     },
     {
       id: 'workout',
@@ -3767,29 +4549,12 @@ body {
       isEssential: true,
       type: 'flexible_schedule',
       scheduledDaysTarget: 5,
+      icon: '🏋️',
+      imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '07:30',
+      hasScheduledTime: true,
       iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg>`,
       description: 'Strength or cardio session (Rest days credited)'
-    },
-    {
-      id: 'personal_project',
-      name: 'Personal Project (1 Hour)',
-      category: 'deep_work',
-      points: 15,
-      isEssential: true,
-      type: 'timer',
-      targetMinutes: 60,
-      iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>`,
-      description: 'Focused deep work without distraction'
-    },
-    {
-      id: 'make_bed',
-      name: 'Make Bed & Clean Room',
-      category: 'morning',
-      points: 14,
-      isEssential: true,
-      type: 'binary',
-      iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/></svg>`,
-      description: 'Tidy environment, clear mind'
     },
     {
       id: 'drink_water',
@@ -3800,6 +4565,10 @@ body {
       type: 'increment',
       targetValue: 3000,
       unit: 'ml',
+      icon: '💧',
+      imageUrl: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '09:00',
+      hasScheduledTime: true,
       iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
       description: 'Hydration milestone (6 × 500ml)'
     },
@@ -3810,8 +4579,27 @@ body {
       points: 14,
       isEssential: true,
       type: 'binary',
+      icon: '🥗',
+      imageUrl: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '12:30',
+      hasScheduledTime: true,
       iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
       description: 'Fuel muscle recovery & metabolism'
+    },
+    {
+      id: 'personal_project',
+      name: 'Personal Project (1 Hour)',
+      category: 'deep_work',
+      points: 15,
+      isEssential: true,
+      type: 'timer',
+      targetMinutes: 60,
+      icon: '⚡',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '15:00',
+      hasScheduledTime: true,
+      iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>`,
+      description: 'Focused deep work without distraction'
     },
     {
       id: 'sleep_on_time',
@@ -3820,8 +4608,12 @@ body {
       points: 14,
       isEssential: true,
       type: 'time_check',
+      icon: '🌙',
+      imageUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=320&auto=format&fit=crop&q=80',
+      scheduledTime: '22:30',
+      hasScheduledTime: true,
       iconSvg: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg>`,
-      description: 'In bed before target time / midnight'
+      description: 'In bed before target time (22:30)'
     }
   ];
 
@@ -4069,12 +4861,42 @@ body {
       try {
         const data = SafeStorage.getItem(this._k('tasks'));
         if (data) {
-          const parsed = JSON.parse(data);
+          let parsed = JSON.parse(data);
+          let enriched = false;
+          parsed = parsed.map(task => {
+            const def = TASK_DEFINITIONS.find(d => d.id === task.id);
+            let updated = { ...task };
+            if (def) {
+              if (!updated.imageUrl && def.imageUrl) {
+                updated.imageUrl = def.imageUrl;
+                enriched = true;
+              }
+              if (!updated.scheduledTime && def.scheduledTime) {
+                updated.scheduledTime = def.scheduledTime;
+                updated.hasScheduledTime = def.hasScheduledTime;
+                enriched = true;
+              }
+              if (!updated.icon && def.icon) {
+                updated.icon = def.icon;
+                enriched = true;
+              }
+            } else {
+              if (updated.scheduledTime && updated.hasScheduledTime === undefined) {
+                updated.hasScheduledTime = true;
+                enriched = true;
+              }
+            }
+            return updated;
+          });
+
           const total = parsed.reduce((sum, t) => sum + (Number(t.points) || 0), 0);
           if (total !== 101 && parsed.length > 0) {
             const balanced = this.rebalanceTasksTo101(parsed);
             this.saveTasks(balanced);
             return balanced;
+          }
+          if (enriched) {
+            SafeStorage.setItem(this._k('tasks'), JSON.stringify(parsed));
           }
           return parsed;
         }
@@ -4103,6 +4925,9 @@ body {
         type: taskData.type || 'binary',
         icon: taskData.icon || '🎯',
         iconSvg: iconSvg,
+        imageUrl: taskData.imageUrl || '',
+        scheduledTime: taskData.scheduledTime || '',
+        hasScheduledTime: !!taskData.scheduledTime,
         description: taskData.description || 'Custom daily discipline standard'
       };
       tasks.push(newTask);
@@ -4115,6 +4940,9 @@ body {
       if (idx !== -1) {
         if (updatedFields.icon && !updatedFields.iconSvg) {
           updatedFields.iconSvg = `<span style="font-size: 1.15rem;">${updatedFields.icon}</span>`;
+        }
+        if (updatedFields.scheduledTime !== undefined) {
+          updatedFields.hasScheduledTime = !!updatedFields.scheduledTime;
         }
         tasks[idx] = { ...tasks[idx], ...updatedFields };
         return this.saveTasks(tasks);
@@ -5151,18 +5979,18 @@ body {
 
       headerEl.innerHTML = `
         <div class="header-date-group">
-          <h1>${this.currentTab === 'profile' ? 'Personal Profile' : "Today's Routine"}</h1>
-          <p>${this.currentTab === 'profile' ? `${name} • Biometrics & Health Hub` : dateFormatted}</p>
+          <p class="header-date-text">${this.currentTab === 'profile' ? `${name} • Health Hub` : dateFormatted}</p>
+          <h1 class="header-title-text">${this.currentTab === 'profile' ? 'Personal Profile' : "Today's Routine"}</h1>
         </div>
         <div class="header-badges">
           <div class="streak-badge" title="Consecutive Winning Streak">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
-            <span>${stats.currentStreak}d Streak</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
+            <span>${stats.currentStreak}d</span>
           </div>
           <!-- Modern Title Bar Light / Dark Theme Toggle Button -->
-          <button type="button" class="header-theme-toggle-btn" id="header-theme-toggle-btn" title="Toggle ${isDark ? 'Light' : 'Dark'} Mode">
+          <button type="button" class="header-icon-btn" id="header-theme-toggle-btn" title="Toggle ${isDark ? 'Light' : 'Dark'} Mode">
             ${isDark ? `
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="4"/>
                 <path d="M12 2v2"/><path d="M12 20v2"/>
                 <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
@@ -5170,15 +5998,14 @@ body {
                 <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
               </svg>
             ` : `
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
                 <path d="M19 3v4"/><path d="M21 5h-4"/>
               </svg>
             `}
           </button>
-          <button type="button" class="header-history-btn" id="header-open-history-btn" title="View Daily Logs & Archive">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-            <span>History</span>
+          <button type="button" class="header-icon-btn" id="header-open-history-btn" title="View Daily Logs & Archive">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
           </button>
           <button type="button" class="header-avatar-btn" id="header-open-profile-btn" title="View Profile, Biometrics & Stats">
             ${initials}
@@ -5300,13 +6127,11 @@ body {
         ${morningTasks.length > 0 ? `
         <!-- Morning Routine -->
         <div class="section-container">
-          <div class="section-header">
-            <span class="section-title">
-              <span class="section-icon-badge morning">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-              </span>
-              Morning Protocol
-            </span>
+          <div class="section-banner banner-morning">
+            <div>
+              <div class="section-banner-title">🌅 Morning Protocol</div>
+              <div class="section-banner-sub">Clear mind, early rising & pristine start</div>
+            </div>
             <span class="section-badge">${morningPts} pts</span>
           </div>
           <div class="task-list">
@@ -5318,13 +6143,11 @@ body {
         ${healthTasks.length > 0 ? `
         <!-- Health & Fitness -->
         <div class="section-container">
-          <div class="section-header">
-            <span class="section-title">
-              <span class="section-icon-badge health">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-              </span>
-              Vitality & Fitness
-            </span>
+          <div class="section-banner banner-health">
+            <div>
+              <div class="section-banner-title">💪 Vitality & Physical Health</div>
+              <div class="section-banner-sub">Peak workout, hydration & clean nutrition</div>
+            </div>
             <span class="section-badge">${healthPts} pts</span>
           </div>
           <div class="task-list">
@@ -5336,13 +6159,11 @@ body {
         ${deepWorkTasks.length > 0 ? `
         <!-- Deep Work -->
         <div class="section-container">
-          <div class="section-header">
-            <span class="section-title">
-              <span class="section-icon-badge focus">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              </span>
-              Deep Focus & Output
-            </span>
+          <div class="section-banner banner-focus">
+            <div>
+              <div class="section-banner-title">⚡ Deep Focus & Output</div>
+              <div class="section-banner-sub">Undivided attention on high-leverage goals</div>
+            </div>
             <span class="section-badge">${deepWorkPts} pts</span>
           </div>
           <div class="task-list">
@@ -5354,13 +6175,11 @@ body {
         ${eveningTasks.length > 0 ? `
         <!-- Evening Routine -->
         <div class="section-container">
-          <div class="section-header">
-            <span class="section-title">
-              <span class="section-icon-badge evening">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-              </span>
-              Evening Protocol
-            </span>
+          <div class="section-banner banner-evening">
+            <div>
+              <div class="section-banner-title">🌙 Evening Wind Down</div>
+              <div class="section-banner-sub">Digital sunset, recovery & restorative rest</div>
+            </div>
             <span class="section-badge">${eveningPts} pts</span>
           </div>
           <div class="task-list">
@@ -5372,13 +6191,11 @@ body {
         ${customTasks.length > 0 ? `
         <!-- Custom Protocols & Additional Habits -->
         <div class="section-container">
-          <div class="section-header">
-            <span class="section-title">
-              <span class="section-icon-badge morning" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
-                🎯
-              </span>
-              Custom Habits & Goals
-            </span>
+          <div class="section-banner banner-custom">
+            <div>
+              <div class="section-banner-title">🎯 Personal Disciplines</div>
+              <div class="section-banner-sub">Custom standards & personal growth habits</div>
+            </div>
             <span class="section-badge">${customPts} pts</span>
           </div>
           <div class="task-list">
@@ -5471,25 +6288,30 @@ body {
           <div class="macro-progress-container">
             <div class="macro-stats-row">
               <div class="macro-mini-pill">
-                <div class="macro-mini-label">Protein Intake</div>
-                <div class="macro-mini-value" style="color: #3b82f6;" id="protein-mini-val">${totals.protein} / ${targets.targetProtein}g <span style="font-size: 0.72rem; color: var(--text-muted);">(${proteinPercent}%)</span></div>
+                <div class="macro-mini-label">Protein</div>
+                <div class="macro-mini-value" style="color: #3b82f6;" id="protein-mini-val">
+                  <span>${totals.protein}g</span>
+                  <span style="font-size: 0.66rem; color: var(--text-muted); font-weight: 500;">/ ${targets.targetProtein}g (${proteinPercent}%)</span>
+                </div>
                 <div class="macro-bar-track">
                   <div class="macro-bar-fill protein" id="protein-mini-bar" style="width: ${proteinPercent}%;"></div>
                 </div>
               </div>
 
               <div class="macro-mini-pill">
-                <div class="macro-mini-label">Calorie Intake</div>
-                <div class="macro-mini-value" style="color: #f59e0b;" id="calorie-mini-val">${totals.calories} / ${targets.targetCalories} kcal <span style="font-size: 0.72rem; color: var(--text-muted);">(${calPercent}%)</span></div>
+                <div class="macro-mini-label">Calories</div>
+                <div class="macro-mini-value" style="color: #f59e0b;" id="calorie-mini-val">
+                  <span>${totals.calories} kcal</span>
+                  <span style="font-size: 0.66rem; color: var(--text-muted); font-weight: 500;">/ ${targets.targetCalories} (${calPercent}%)</span>
+                </div>
                 <div class="macro-bar-track">
                   <div class="macro-bar-fill calories" id="calorie-mini-bar" style="width: ${calPercent}%;"></div>
                 </div>
               </div>
             </div>
 
-            <button type="button" class="btn-timer btn-timer-primary" id="btn-open-nutrition-modal" style="width: 100%; padding: 8px 12px; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 6px;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-              <span id="nutrition-modal-btn-label">🍽️ Log Meals & Macro Calculator (${totals.mealCount} Logged)</span>
+            <button type="button" class="btn-timer btn-timer-primary" id="btn-open-nutrition-modal" style="width: 100%; padding: 6px 10px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 5px;">
+              <span id="nutrition-modal-btn-label">🍽️ Log Meals & Macros (${totals.mealCount} Logged)</span>
             </button>
           </div>
         `;
@@ -5512,11 +6334,24 @@ body {
           <div style="width: 100%;">
             <div style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;" class="task-header-row" data-header-task-id="${task.id}">
               <div class="task-main-content">
-                <div class="task-icon-wrapper" id="task-icon-${task.id}">${task.iconSvg || '✓'}</div>
+                ${task.imageUrl ? `
+                  <div class="task-thumb-container">
+                    <img src="${task.imageUrl}" alt="${task.name}" class="task-thumb-image" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'task-icon-wrapper\\'>${task.icon || '🎯'}</div>';" />
+                    <div class="task-thumb-overlay-badge">${task.icon || '🎯'}</div>
+                  </div>
+                ` : `
+                  <div class="task-icon-wrapper" id="task-icon-${task.id}">${task.iconSvg || task.icon || '✓'}</div>
+                `}
                 <div class="task-info">
                   <div class="task-name">${task.name}</div>
                   <div class="task-meta">
                     <span class="task-points-pill">+${task.points} pts</span>
+                    ${task.scheduledTime ? `
+                      <span class="task-time-pill">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ${task.scheduledTime}
+                      </span>
+                    ` : ''}
                     ${isRestDay ? '<span style="color: #0284c7; font-weight: 700;">(Rest Day Credited)</span>' : ''}
                   </div>
                 </div>
@@ -6921,27 +7756,27 @@ body {
       return `
         <div style="padding: 16px 20px;">
           <div class="analytics-grid">
-            <div class="stat-card">
+            <div class="stat-card stat-streak">
               <div class="stat-label">Current Streak</div>
-              <div class="stat-num" style="color: #ea580c; display: flex; align-items: center; gap: 5px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#ea580c" stroke="#c2410c" stroke-width="1.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
+              <div class="stat-num" style="display: flex; align-items: center; gap: 5px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/></svg>
                 <span>${stats.currentStreak} days</span>
               </div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card stat-best">
               <div class="stat-label">Best Streak</div>
-              <div class="stat-num" style="color: #0284c7; display: flex; align-items: center; gap: 5px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"/></svg>
+              <div class="stat-num" style="display: flex; align-items: center; gap: 5px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"/></svg>
                 <span>${stats.bestStreak} days</span>
               </div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card stat-winrate">
               <div class="stat-label">Win Rate</div>
-              <div class="stat-num" style="color: #16a34a;">${stats.winRate}%</div>
+              <div class="stat-num">${stats.winRate}%</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card stat-lifetime">
               <div class="stat-label">Lifetime Points</div>
-              <div class="stat-num" style="color: #6366f1;">${stats.lifetimePoints.toLocaleString()}</div>
+              <div class="stat-num">${stats.lifetimePoints.toLocaleString()}</div>
             </div>
           </div>
 
@@ -6984,8 +7819,12 @@ body {
             <div style="display: flex; flex-direction: column; gap: 14px;">
               ${taskRates.map(item => `
                 <div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-bottom: 5px;">
-                    <span style="color: var(--text-primary);">${item.task.name}</span>
+                  <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; font-weight: 700; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      ${item.task.imageUrl ? `<img src="${item.task.imageUrl}" style="width: 26px; height: 26px; border-radius: 6px; object-fit: cover; flex-shrink: 0;" />` : `<span style="font-size: 1rem;">${item.task.icon || '🎯'}</span>`}
+                      <span style="color: var(--text-primary);">${item.task.name}</span>
+                      ${item.task.scheduledTime ? `<span class="task-time-pill" style="font-size: 0.65rem; padding: 1px 6px;">⏰ ${item.task.scheduledTime}</span>` : ''}
+                    </div>
                     <span style="color: var(--accent-emerald); font-weight: 800;">${item.rate}% <span style="font-size: 0.74rem; color: var(--text-secondary); font-weight: 500;">(${item.completedCount}/${item.totalCount})</span></span>
                   </div>
                   <div class="habit-rate-track">
@@ -7116,11 +7955,18 @@ body {
               ${this.db.getTasks().map(task => `
                 <div class="task-customizer-card" data-custom-task-id="${task.id}">
                   <div class="task-customizer-left">
-                    <div class="task-customizer-icon">
-                      ${task.iconSvg || task.icon || '🎯'}
-                    </div>
+                    ${task.imageUrl ? `
+                      <img src="${task.imageUrl}" alt="${task.name}" style="width: 44px; height: 44px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0;" />
+                    ` : `
+                      <div class="task-customizer-icon">
+                        ${task.iconSvg || task.icon || '🎯'}
+                      </div>
+                    `}
                     <div class="task-customizer-info">
-                      <div class="task-customizer-title">${task.name}</div>
+                      <div class="task-customizer-title">
+                        ${task.name}
+                        ${task.scheduledTime ? `<span class="task-time-pill" style="font-size: 0.65rem; margin-left: 6px;">⏰ ${task.scheduledTime}</span>` : ''}
+                      </div>
                       <div class="task-customizer-desc">${task.description || ''}</div>
                       <div class="task-customizer-badges">
                         <span class="task-badge-pts">+${task.points} pts</span>
@@ -7469,6 +8315,23 @@ body {
       const currentName = task?.name || '';
       const currentDesc = task?.description || '';
       const currentIcon = task?.icon || '🎯';
+      const currentScheduledTime = task?.scheduledTime || '';
+      const currentImageUrl = task?.imageUrl || '';
+
+      const imagePresets = [
+        { label: 'Sunrise', url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Bedroom', url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Gym Fitness', url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Hydration', url: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Clean Food', url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Deep Focus', url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Night Sky', url: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Reading', url: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Meditation', url: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Mountains', url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Journaling', url: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=320&auto=format&fit=crop&q=80' },
+        { label: 'Running', url: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=320&auto=format&fit=crop&q=80' }
+      ];
 
       content.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px;">
@@ -7477,7 +8340,7 @@ body {
               ${isNew ? '➕ Add New Daily Habit' : `✏️ Edit Habit: ${currentName}`}
             </div>
             <div style="font-size: 0.72rem; color: var(--text-secondary); margin-top: 2px;">
-              Customize points, category, name & standard of completion
+              Customize target time, aesthetic image, category & standard of completion
             </div>
           </div>
           <button type="button" class="btn-close-task-modal-trigger" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted); padding: 4px 8px; border-radius: 4px;" title="Close">✕</button>
@@ -7511,8 +8374,89 @@ body {
             </div>
           </div>
 
+          <!-- Dedicated Setting: Scheduled Target Time -->
+          <div class="modal-section-card">
+            <div class="modal-section-title">
+              <span style="font-size: 1rem;">⏰</span> Scheduled Target Time (Setting)
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 10px;">
+              Specify when this habit should be executed or completed each day.
+            </div>
+
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+              <input type="time" id="task-form-time" class="setting-input" style="flex: 1; font-size: 0.9rem; padding: 6px 10px;" value="${currentScheduledTime}">
+              <button type="button" id="btn-clear-task-time" class="btn-timer btn-timer-secondary" style="padding: 6px 10px; font-size: 0.74rem;">Clear</button>
+            </div>
+
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Quick Presets:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              ${[
+                { label: '🌅 06:00', val: '06:00' },
+                { label: '☀️ 07:30', val: '07:30' },
+                { label: '💧 09:00', val: '09:00' },
+                { label: '🥗 12:30', val: '12:30' },
+                { label: '⚡ 15:00', val: '15:00' },
+                { label: '🌆 18:00', val: '18:00' },
+                { label: '🌙 22:30', val: '22:30' }
+              ].map(p => `
+                <button type="button" class="btn-time-preset" data-time="${p.val}" style="padding: 3px 8px; font-size: 0.72rem; border-radius: 9999px; border: 1px solid var(--border-subtle); background: var(--bg-elevated); cursor: pointer; color: var(--text-primary);">${p.label}</button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Dedicated Setting: Habit Theme Image -->
+          <div class="modal-section-card">
+            <div class="modal-section-title">
+              <span style="font-size: 1rem;">🖼️</span> Habit Theme Image (Setting)
+            </div>
+            <div style="font-size: 0.72rem; color: var(--text-secondary); margin-bottom: 10px;">
+              Choose a calm aesthetic photo preset, upload a photo, or paste a custom image URL.
+            </div>
+
+            <!-- Preview & Current Image Box -->
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px; background: var(--bg-card); padding: 8px 10px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <div style="width: 52px; height: 52px; border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-elevated); flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-subtle);" id="modal-img-preview-box">
+                ${currentImageUrl ? `
+                  <img id="modal-preview-img" src="${currentImageUrl}" style="width: 100%; height: 100%; object-fit: cover;" />
+                ` : `
+                  <span id="modal-preview-placeholder" style="font-size: 1.4rem;">🎯</span>
+                `}
+              </div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-primary);" id="modal-img-status-label">
+                  ${currentImageUrl ? 'Custom Image Active' : 'No Image Selected (Default Icon Used)'}
+                </div>
+                <div style="display: flex; gap: 6px; margin-top: 5px;">
+                  <button type="button" id="btn-upload-habit-image" class="btn-timer btn-timer-primary" style="padding: 4px 8px; font-size: 0.72rem;">📷 Upload Photo</button>
+                  <button type="button" id="btn-remove-habit-image" class="btn-timer btn-timer-secondary" style="padding: 4px 8px; font-size: 0.72rem;">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <input type="file" id="task-image-file-input" accept="image/*" style="display: none;">
+            <input type="hidden" id="task-form-image-url" value="${currentImageUrl}">
+
+            <!-- Curated Calm Image Presets -->
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">Curated Calm Presets:</div>
+            <div class="image-presets-grid" style="margin-bottom: 12px;">
+              ${imagePresets.map(preset => `
+                <div class="preset-img-btn ${currentImageUrl === preset.url ? 'active' : ''}" data-img-url="${preset.url}">
+                  <img src="${preset.url}" alt="${preset.label}" loading="lazy" />
+                  <div class="preset-img-label">${preset.label}</div>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Custom URL Input -->
+            <div style="font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Or Custom Image URL:</div>
+            <div style="display: flex; gap: 6px;">
+              <input type="url" id="task-form-custom-url-input" class="setting-input" style="flex: 1; font-size: 0.78rem; padding: 5px 8px;" placeholder="https://images.unsplash.com/..." value="${currentImageUrl.startsWith('http') ? currentImageUrl : ''}">
+              <button type="button" id="btn-apply-custom-url" class="btn-timer btn-timer-secondary" style="padding: 5px 9px; font-size: 0.74rem;">Apply</button>
+            </div>
+          </div>
+
           <div class="modal-form-group">
-            <label class="modal-form-label">Icon Emoji</label>
+            <label class="modal-form-label">Icon Emoji (Overlay Badge)</label>
             <div style="display: flex; gap: 8px; align-items: center;">
               <input type="text" id="task-form-icon" class="setting-input" style="width: 54px; text-align: center; font-size: 1.1rem; padding: 4px;" value="${currentIcon}" maxlength="4">
               <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap;">
@@ -7541,6 +8485,91 @@ body {
 
       overlay.classList.add('open');
 
+      // Helper to update live preview
+      const updatePreview = (url) => {
+        const previewBox = document.getElementById('modal-img-preview-box');
+        const statusLabel = document.getElementById('modal-img-status-label');
+        const hiddenInput = document.getElementById('task-form-image-url');
+        if (hiddenInput) hiddenInput.value = url || '';
+
+        if (previewBox) {
+          if (url) {
+            previewBox.innerHTML = `<img id="modal-preview-img" src="${url}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='<span style=\\'font-size: 1.4rem;\\'>🎯</span>';" />`;
+          } else {
+            previewBox.innerHTML = `<span style="font-size: 1.4rem;">🎯</span>`;
+          }
+        }
+        if (statusLabel) {
+          statusLabel.textContent = url ? 'Image Selected' : 'No Image Selected (Default Icon Used)';
+        }
+      };
+
+      // Preset buttons
+      content.querySelectorAll('.preset-img-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          content.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const url = btn.getAttribute('data-img-url');
+          updatePreview(url);
+          const customInput = document.getElementById('task-form-custom-url-input');
+          if (customInput) customInput.value = url;
+        });
+      });
+
+      // Custom URL Apply button
+      document.getElementById('btn-apply-custom-url')?.addEventListener('click', () => {
+        const customUrl = document.getElementById('task-form-custom-url-input')?.value.trim();
+        if (customUrl) {
+          content.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('active'));
+          updatePreview(customUrl);
+        }
+      });
+
+      // Upload Photo button & input
+      const fileInput = document.getElementById('task-image-file-input');
+      document.getElementById('btn-upload-habit-image')?.addEventListener('click', () => {
+        fileInput?.click();
+      });
+
+      fileInput?.addEventListener('change', (e) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const dataUrl = event.target.result;
+            content.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('active'));
+            updatePreview(dataUrl);
+            const customInput = document.getElementById('task-form-custom-url-input');
+            if (customInput) customInput.value = '';
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Remove Image button
+      document.getElementById('btn-remove-habit-image')?.addEventListener('click', () => {
+        content.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('active'));
+        updatePreview('');
+        const customInput = document.getElementById('task-form-custom-url-input');
+        if (customInput) customInput.value = '';
+        if (fileInput) fileInput.value = '';
+      });
+
+      // Time presets
+      content.querySelectorAll('.btn-time-preset').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const timeVal = btn.getAttribute('data-time');
+          const timeInput = document.getElementById('task-form-time');
+          if (timeInput) timeInput.value = timeVal;
+        });
+      });
+
+      // Clear Time button
+      document.getElementById('btn-clear-task-time')?.addEventListener('click', () => {
+        const timeInput = document.getElementById('task-form-time');
+        if (timeInput) timeInput.value = '';
+      });
+
       // Emoji picker buttons
       content.querySelectorAll('.btn-emoji-pick').forEach(b => {
         b.addEventListener('click', () => {
@@ -7558,6 +8587,8 @@ body {
           const catVal = document.getElementById('task-form-category')?.value;
           const descVal = document.getElementById('task-form-desc')?.value.trim();
           const iconVal = document.getElementById('task-form-icon')?.value.trim() || '🎯';
+          const timeVal = document.getElementById('task-form-time')?.value.trim() || '';
+          const imgVal = document.getElementById('task-form-image-url')?.value.trim() || '';
 
           if (!nameVal) {
             alert('Please provide a habit title.');
@@ -7570,6 +8601,9 @@ body {
               category: catVal,
               description: descVal,
               icon: iconVal,
+              scheduledTime: timeVal,
+              hasScheduledTime: !!timeVal,
+              imageUrl: imgVal,
               type: 'binary'
             });
           } else {
@@ -7578,7 +8612,10 @@ body {
               category: catVal,
               description: descVal,
               icon: iconVal,
-              iconSvg: `<span style="font-size: 1.15rem;">${iconVal}</span>`
+              iconSvg: `<span style="font-size: 1.15rem;">${iconVal}</span>`,
+              scheduledTime: timeVal,
+              hasScheduledTime: !!timeVal,
+              imageUrl: imgVal
             });
           }
 

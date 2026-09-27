@@ -183,7 +183,7 @@ export default function DashboardPage() {
           <p className="text-3xl font-black text-slate-900 dark:text-white mt-1">
             {purchases.length}
           </p>
-          <p className="text-[11px] text-emerald-500 mt-1">Unlimited Client Rights</p>
+          <p className="text-[11px] text-emerald-500 mt-1">Commercial License (12 Deploys/Yr)</p>
         </div>
 
         <div className="p-5 rounded-2xl glass-card border border-white/50 dark:border-white/10">

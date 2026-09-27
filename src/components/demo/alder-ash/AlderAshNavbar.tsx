@@ -60,10 +60,10 @@ export function AlderAshNavbar({ activePage, onPageChange, onOpenBooking, device
             <TreePine className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
           <div className="flex flex-col">
-            <span className="font-serif text-lg sm:text-xl font-medium tracking-tight text-[#F5EFE3] leading-none group-hover:text-[#D98F4A] transition-colors">
+            <span className="font-serif text-lg sm:text-xl font-medium tracking-tight text-[#F5EFE3] leading-none group-hover:text-[#D98F4A] transition-colors whitespace-nowrap">
               Alder &amp; Ash
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-[#E8DCC3]/60 font-sans mt-0.5 font-semibold">
+            <span className="text-[9px] sm:text-[10px] tracking-widest uppercase text-[#E8DCC3]/60 font-sans mt-0.5 font-semibold whitespace-nowrap">
               Cascade Forest Retreat
             </span>
           </div>

@@ -16,8 +16,8 @@
 
   <!-- Left Card: Hydration & Macro Tracker -->
   <g transform="translate(120, 40)">
-    <rect width="260" height="420" rx="28" fill="#0f172a" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
-    <rect x="2" y="2" width="256" height="416" rx="26" fill="#090d16"/>
+    <rect width="260" height="420" rx="24" fill="#0f172a" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+    <rect x="2" y="2" width="256" height="416" rx="22" fill="#090d16"/>
 
     <text x="24" y="44" fill="#38bdf8" font-size="11" font-weight="700" letter-spacing="1" font-family="system-ui, sans-serif">HYDRATION TRACKER</text>
     <text x="24" y="70" fill="#ffffff" font-size="20" font-weight="800" font-family="system-ui, sans-serif">3.0 Liters Daily Goal</text>
@@ -68,20 +68,20 @@
     <text x="36" y="378" fill="#34d399" font-size="10" font-weight="600" font-family="system-ui, sans-serif">Calories Target Hit • +10 pts</text>
   </g>
 
-  <!-- Right Card: Offline Architecture & Key Highlights -->
+  <!-- Right Card: Multi-Device Cloud Sync & Highlights -->
   <g transform="translate(420, 50)">
     <rect width="260" height="390" rx="24" fill="#0f172a" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5"/>
     <rect x="2" y="2" width="256" height="386" rx="22" fill="#090d16"/>
 
-    <text x="24" y="44" fill="#10b981" font-size="11" font-weight="700" letter-spacing="1" font-family="system-ui, sans-serif">OFFLINE SOVEREIGNTY</text>
-    <text x="24" y="70" fill="#ffffff" font-size="18" font-weight="800" font-family="system-ui, sans-serif">Zero Cloud Dependency</text>
+    <text x="24" y="44" fill="#10b981" font-size="11" font-weight="700" letter-spacing="1" font-family="system-ui, sans-serif">CLOUD ARCHITECTURE</text>
+    <text x="24" y="70" fill="#ffffff" font-size="18" font-weight="800" font-family="system-ui, sans-serif">Multi-Device Cloud Sync</text>
 
     <!-- Point 1 -->
     <g transform="translate(24, 96)">
       <circle cx="16" cy="16" r="16" fill="rgba(16, 185, 129, 0.15)"/>
-      <text x="16" y="20" fill="#10b981" font-size="12" font-weight="800" text-anchor="middle">⚡</text>
-      <text x="44" y="14" fill="#ffffff" font-size="12" font-weight="700" font-family="system-ui, sans-serif">Sub-100ms Load Time</text>
-      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">Local storage cache &amp; Service Worker</text>
+      <text x="16" y="20" fill="#10b981" font-size="12" font-weight="800" text-anchor="middle">☁️</text>
+      <text x="44" y="14" fill="#ffffff" font-size="12" font-weight="700" font-family="system-ui, sans-serif">Real-Time Cloud Sync</text>
+      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">Instant sync across Phone, Tablet &amp; Laptop</text>
     </g>
 
     <!-- Point 2 -->
@@ -97,20 +97,20 @@
       <circle cx="16" cy="16" r="16" fill="rgba(99, 102, 241, 0.15)"/>
       <text x="16" y="20" fill="#6366f1" font-size="12" font-weight="800" text-anchor="middle">🌙</text>
       <text x="44" y="14" fill="#ffffff" font-size="12" font-weight="700" font-family="system-ui, sans-serif">3:00 AM Day Rollover</text>
-      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">Protects late-night shift workers &amp; night owls</text>
+      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">Protects night owls and late-shift routines</text>
     </g>
 
     <!-- Point 4 -->
     <g transform="translate(24, 258)">
       <circle cx="16" cy="16" r="16" fill="rgba(236, 72, 153, 0.15)"/>
-      <text x="16" y="20" fill="#ec4899" font-size="12" font-weight="800" text-anchor="middle">🛡️</text>
-      <text x="44" y="14" fill="#ffffff" font-size="12" font-weight="700" font-family="system-ui, sans-serif">100% Private &amp; Offline</text>
-      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">No accounts, no analytics, no tracking</text>
+      <text x="16" y="20" fill="#ec4899" font-size="12" font-weight="800" text-anchor="middle">⚡</text>
+      <text x="44" y="14" fill="#ffffff" font-size="12" font-weight="700" font-family="system-ui, sans-serif">Offline Resilient Web App</text>
+      <text x="44" y="28" fill="#64748b" font-size="10" font-family="system-ui, sans-serif">Cached locally with auto-cloud background sync</text>
     </g>
 
     <!-- Install to phone banner -->
     <rect x="24" y="324" width="212" height="42" rx="12" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.1)"/>
-    <text x="130" y="344" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">📱 Installable PWA</text>
-    <text x="130" y="358" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">Add to iOS Safari &amp; Android Chrome Home</text>
+    <text x="130" y="344" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">🌐 Universal Cloud Access</text>
+    <text x="130" y="358" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="system-ui, sans-serif">Works on iOS Safari, Android &amp; Web</text>
   </g>
 </svg>

@@ -61,7 +61,7 @@ export default function HomePage() {
     {
       number: '03',
       title: 'Instant Download & Deploy',
-      desc: 'Access your source code, Figma design files, license key, and documentation immediately in your personal dashboard.',
+      desc: 'Access your full source code, design tokens, license key, and documentation immediately in your personal dashboard.',
       icon: <DownloadLuxury className="w-5 h-5" />,
     },
   ];
@@ -77,19 +77,19 @@ export default function HomePage() {
     },
     {
       quote:
-        'Code quality is 10/10. Strict TypeScript, clean Tailwind tokens, zero spaghetti. Drop your content in and ship to Vercel in 10 minutes.',
+        'QuickBill transformed how our retail counters handle checkout and inventory. Instant multi-device sync, thermal receipt printing, and unlimited items right out of the box.',
       author: 'Sophia Lindqvist',
       role: 'Senior Frontend Engineer',
       avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces',
-      template: 'Aura Studio & Agency',
+      template: 'QuickBill — Modern Cloud POS & Billing App',
     },
     {
       quote:
-        'Finally a template marketplace that treats developer experience as a first-class citizen. Adding new templates takes seconds.',
+        'Win the Day gives our team the exact gamified momentum engine we needed. Fast local-first caching with seamless cloud synchronization and zero latency.',
       author: 'Marcus Brody',
       role: 'Tech Lead & Designer',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces',
-      template: 'Apex Modern E-Commerce',
+      template: 'Win the Day — Cloud Habit & Momentum Engine',
     },
   ];
 
@@ -281,23 +281,28 @@ export default function HomePage() {
           </div>
 
           {/* Bottom QR Callout Banner inside section */}
-          <div className="mt-10 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-pink-500/10 border border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3.5">
-              <div className="p-2.5 rounded-xl glass-panel bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25 border border-amber-400/30">
-                <QrLuxury className="w-6 h-6" />
+          <div className="mt-10 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-pink-500/10 border border-amber-500/25 dark:border-amber-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <Link 
+              href="/templates/alder-ash-resort"
+              className="group flex items-center gap-3.5 focus:outline-none"
+              title="Try Dynamic QR Purchasing Demo"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 text-white shadow-md shadow-amber-500/30 border border-amber-300/60 dark:border-amber-400/40 flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-amber-500/40 group-hover:brightness-105 transition-all">
+                <QrLuxury className="w-6 h-6 text-white drop-shadow-sm" />
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900 dark:text-white">
+                <p className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                   Dynamic QR Code Purchasing System
                 </p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Scan on your phone via mobile wallet, UPI, or crypto payment. Instant receipt & dashboard sync.
+                  Scan on your phone via mobile wallet, UPI, or crypto payment. Instant receipt &amp; dashboard sync.
                 </p>
               </div>
-            </div>
+            </Link>
             <Link href="/templates/alder-ash-resort">
-              <Button variant="glow" size="sm">
-                Try Live QR Demo
+              <Button variant="glow" size="sm" className="font-bold shadow-md shadow-indigo-500/25 hover:shadow-lg hover:shadow-indigo-500/40">
+                <QrLuxury className="w-3.5 h-3.5 mr-1.5 text-white" />
+                <span>Try Live QR Demo</span>
               </Button>
             </Link>
           </div>

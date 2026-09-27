@@ -103,22 +103,48 @@ export default function TemplateDetailPage() {
 
             {template.livePreviewUrl && (
               <div className="mt-4 flex flex-wrap items-center gap-3">
-                <Link href={template.livePreviewUrl}>
-                  <Button variant="glow" size="md" className="font-bold shadow-indigo-500/20">
-                    <Compass className="w-4 h-4 mr-2" />
-                    <span>View Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5 ml-2 opacity-70" />
-                  </Button>
-                </Link>
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  Fully interactive preview with mobile, tablet &amp; desktop modes
-                </span>
+                {template.category === 'website' ? (
+                  <>
+                    <a href={template.livePreviewUrl} target="_blank" rel="noopener noreferrer">
+                      <Button variant="glow" size="md" className="font-bold shadow-indigo-500/20">
+                        <Compass className="w-4 h-4 mr-2" />
+                        <span>View Live Demo</span>
+                        <ExternalLink className="w-3.5 h-3.5 ml-2 opacity-70" />
+                      </Button>
+                    </a>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">
+                      Fully interactive preview with mobile, tablet &amp; desktop modes
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Button
+                      variant="glow"
+                      size="md"
+                      className="font-bold shadow-indigo-500/20 cursor-pointer"
+                      onClick={() => {
+                        const el = document.getElementById('preview-gallery');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      <Sparkles className="w-4 h-4 mr-2 text-amber-300" />
+                      <span>Test Live App in Preview</span>
+                    </Button>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">
+                      {template.category === 'mobile' || (template as any).isMobileOnly
+                        ? 'Interactive mobile app preview in phone frame below'
+                        : 'Interactive POS & app demo in preview frame below'}
+                    </span>
+                  </>
+                )}
               </div>
             )}
           </div>
 
           {/* Gallery Component */}
-          <TemplateGallery template={template} />
+          <div id="preview-gallery" className="scroll-mt-24">
+            <TemplateGallery template={template} />
+          </div>
 
           {/* Description & Overview */}
           <div className="p-6 sm:p-8 rounded-2xl glass-card border border-white/50 dark:border-white/10 space-y-4">
@@ -226,29 +252,44 @@ export default function TemplateDetailPage() {
 
             {/* Action Buttons */}
             <div className="space-y-3 pt-2">
-              {/* Launch Live Demo */}
+              {/* Launch Live Demo (Websites) or Try in Preview (Apps) */}
               {template.livePreviewUrl && (
-                <Link href={template.livePreviewUrl} className="block w-full">
+                template.category === 'website' ? (
+                  <a href={template.livePreviewUrl} target="_blank" rel="noopener noreferrer" className="block w-full">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full justify-center py-3.5 border-indigo-500/40 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10 font-bold shadow-sm hover:shadow-md hover:shadow-indigo-500/15 transition-all"
+                    >
+                      <Compass className="w-4 h-4 mr-2 text-indigo-500" />
+                      <span>Launch Live Demo</span>
+                      <ExternalLink className="w-3.5 h-3.5 ml-2 opacity-70" />
+                    </Button>
+                  </a>
+                ) : (
                   <Button
                     variant="outline"
                     size="lg"
-                    className="w-full justify-center py-3.5 border-indigo-500/40 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-500/10 font-bold shadow-sm"
+                    className="w-full justify-center py-3.5 border-indigo-500/40 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50/10 font-bold shadow-sm hover:shadow-md hover:shadow-indigo-500/15 cursor-pointer transition-all"
+                    onClick={() => {
+                      const el = document.getElementById('preview-gallery');
+                      el?.scrollIntoView({ behavior: 'smooth' });
+                    }}
                   >
-                    <Compass className="w-4 h-4 mr-2 text-indigo-500" />
-                    <span>Launch Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5 ml-2 opacity-70" />
+                    <Sparkles className="w-4 h-4 mr-2 text-amber-500" />
+                    <span>Try Demo in Preview</span>
                   </Button>
-                </Link>
+                )
               )}
 
               {/* Buy via QR Code */}
               <Button
                 variant="glow"
                 size="lg"
-                className="w-full justify-center py-4 font-bold shadow-xl shadow-purple-500/25 border border-white/20"
+                className="w-full justify-center py-4 font-bold shadow-md shadow-indigo-950/40 dark:shadow-black/50 hover:shadow-xl hover:shadow-indigo-500/30 hover:border-indigo-300/60 transition-all cursor-pointer"
                 onClick={() => setIsQrModalOpen(true)}
               >
-                <QrLuxury className="w-5 h-5 mr-2 text-white shrink-0 drop-shadow-xs" />
+                <QrLuxury className="w-5 h-5 mr-2 text-white shrink-0 drop-shadow-sm" />
                 <span>Buy via QR Code</span>
               </Button>
 
@@ -256,7 +297,7 @@ export default function TemplateDetailPage() {
               <Button
                 variant="secondary"
                 size="lg"
-                className="w-full justify-center py-4"
+                className="w-full justify-center py-4 font-bold shadow-md shadow-black/10 dark:shadow-black/40 hover:shadow-lg hover:shadow-black/20 dark:hover:shadow-black/60 transition-all"
                 onClick={() => setIsDirectCheckoutOpen(true)}
               >
                 <CreditCard className="w-5 h-5 mr-2 text-indigo-400" />
@@ -267,7 +308,7 @@ export default function TemplateDetailPage() {
               <Button
                 variant="glass"
                 size="md"
-                className="w-full justify-center text-xs"
+                className="w-full justify-center text-xs shadow-sm shadow-black/5 dark:shadow-black/20 hover:shadow-md hover:shadow-black/10 dark:hover:shadow-black/40 transition-all"
                 onClick={() => setIsContactModalOpen(true)}
               >
                 <Mail className="w-4 h-4 mr-2 text-amber-500" />
@@ -283,11 +324,11 @@ export default function TemplateDetailPage() {
               </div>
               <div className="flex items-center gap-2.5">
                 <UpdateLuxury className="w-4 h-4 shrink-0" />
-                <span>Free lifetime updates & bug fixes</span>
+                <span>1 Year of free version updates & bug fixes</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <DownloadLuxury className="w-4 h-4 shrink-0" />
-                <span>Commercial unlimited client deployments</span>
+                <span>12 Client deployments included (1/month for 1st year)</span>
               </div>
             </div>
 

@@ -108,252 +108,17 @@ Whether you operate a secluded mountain lodge, coastal retreat, or wilderness gl
       'Full Multi-Page Website Source Code',
       'Static HTML/CSS/JS Flat Export',
       'Interactive 5-Step Reservation Engine',
-      'Figma Design Tokens & Typography Kit',
-      'Curated High-Res Unsplash Photography Pack',
-      'Commercial Unlimited Client Deployments',
-      'Lifetime Updates & Support'
+      'Tailwind CSS Design Tokens & Typography System',
+      'Royalty-Free Demo Assets & Vector Icon Library',
+      '12 Deployments Included (1/Month for 1st Year)',
+      '1-Year Version Updates & Bug Fix Warranty'
     ]
   },
   {
     id: 'tpl-002',
-    slug: 'aura-agency-portfolio',
-    name: 'Aura Studio & Agency',
-    tagline: 'High-end creative portfolio with fluid micro-interactions',
-    category: 'website',
-    price: 49,
-    originalPrice: 89,
-    rating: 4.95,
-    reviewsCount: 34,
-    salesCount: 245,
-    featured: true,
-    badge: 'Trending',
-    shortDescription: 'Sleek, minimalist digital agency and portfolio template with smooth inertial scrolling, magnetic cursor effects, and case study layouts.',
-    longDescription: `Aura is crafted for modern design studios, creative agencies, and senior independent contractors who need an unforgettable digital presence. 
-
-Engineered with buttery smooth Framer Motion animations, dynamic case study showcases, interactive project galleries, and responsive contact flows that convert visitors into high-paying clients.`,
-    features: [
-      'Magnetic cursor & hover interactions',
-      'Dynamic Case Study CMS structure with MDX support',
-      'Full-bleed interactive media galleries',
-      'Fluid dark/light mode toggle with frosted highlights',
-      'Contact form with email dispatch & validation',
-      'Client testimonial slider with responsive touch gestures',
-      'Perfect 100/100 Lighthouse performance score',
-      'Modular components for services, process, and pricing'
-    ],
-    detailedFeatures: [
-      {
-        title: 'Project Case Studies',
-        description: 'Immersive grid and list view for projects with video support and client deliverables.'
-      },
-      {
-        title: 'Interactive Process Roadmap',
-        description: 'Step-by-step visual client onboarding flow with interactive tabs.'
-      },
-      {
-        title: 'Client Pitch Deck Kit',
-        description: 'Includes reusable presentation cards and proposal sections.'
-      }
-    ],
-    previewImages: [
-      {
-        url: '/previews/aura-1.svg',
-        alt: 'Aura Agency Hero screen with dramatic typography and glass cards',
-        caption: 'Hero Section & Featured Works'
-      },
-      {
-        url: '/previews/aura-2.svg',
-        alt: 'Aura Case Study Detail page with media lightbox',
-        caption: 'In-Depth Case Study Presentation'
-      },
-      {
-        url: '/previews/aura-3.svg',
-        alt: 'Aura Services & Contact booking modal',
-        caption: 'Services Matrix & Booking Funnel'
-      }
-    ],
-    techStack: [
-      { name: 'React 19', category: 'frontend', color: '#61DAFB' },
-      { name: 'Next.js 14', category: 'frontend', color: '#000000' },
-      { name: 'Tailwind CSS', category: 'styling', color: '#06B6D4' },
-      { name: 'Framer Motion', category: 'styling', color: '#FF0055' },
-      { name: 'MDX', category: 'tooling', color: '#FCB32C' }
-    ],
-    purchaseLink: 'https://checkout.templestore.dev/aura',
-    livePreviewUrl: 'https://aura-preview.templestore.dev',
-    version: '1.8.2',
-    lastUpdated: 'September 2026',
-    author: {
-      name: 'Studio Monolith',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces',
-      role: 'Award-winning Design Collective'
-    },
-    fileSize: '3.2 MB',
-    includedItems: [
-      'Next.js 14 Application Code',
-      'Framer Motion Custom Hooks & Transitions',
-      'Figma Assets & Responsive Wireframes',
-      'Markdown Case Studies Content Sample',
-      'Single & Multi-Site Commercial License'
-    ]
-  },
-  {
-    id: 'tpl-003',
-    slug: 'pulse-fitness-companion',
-    name: 'Pulse Fitness & Habits',
-    tagline: 'Mobile-first habit tracker & wellness companion template',
-    category: 'mobile',
-    price: 59,
-    originalPrice: 99,
-    rating: 4.88,
-    reviewsCount: 29,
-    salesCount: 188,
-    featured: false,
-    badge: 'Mobile App',
-    shortDescription: 'Cross-platform health & routine tracking mobile interface with gamified streaks, workout planners, and biometric charts.',
-    longDescription: `Pulse brings consumer-grade polish to wellness and habit-building applications. Modeled after top-grossing fitness apps, Pulse features biometric tracking charts, weekly routine planner cards, workout timers, and social streak achievements.
-
-Engineered for mobile responsiveness with PWA (Progressive Web App) capability and React Native / Expo compatibility.`,
-    features: [
-      'PWA & Mobile-First Responsive layouts with iOS/Android viewport styles',
-      'Interactive streak calendar & habit check-in micro-interactions',
-      'Workout session timer with audio cues and set logger',
-      'Calorie & macro tracker with SVG circular progress rings',
-      'Dark mode optimized for nighttime usage (OLED deep black)',
-      'Offline state caching with local storage persistence',
-      'Ready-to-use biometric & wearable sync placeholder hooks',
-      'Push notification permission prompt modal'
-    ],
-    detailedFeatures: [
-      {
-        title: 'Gamified Habit Rings',
-        description: 'Smooth SVG animated rings that fill up as tasks are completed.'
-      },
-      {
-        title: 'Workout Split Builder',
-        description: 'Drag-and-drop exercise scheduler with rest interval timers.'
-      }
-    ],
-    previewImages: [
-      {
-        url: '/previews/pulse-1.svg',
-        alt: 'Pulse mobile screen showing daily habits and workout planner',
-        caption: 'Daily Routine & Habit Tracker'
-      },
-      {
-        url: '/previews/pulse-2.svg',
-        alt: 'Pulse analytics screen with heart rate and calorie charts',
-        caption: 'Biometric Metrics & Progress Charts'
-      }
-    ],
-    techStack: [
-      { name: 'React Native / Web', category: 'frontend', color: '#61DAFB' },
-      { name: 'TypeScript', category: 'frontend', color: '#3178C6' },
-      { name: 'Tailwind CSS', category: 'styling', color: '#06B6D4' },
-      { name: 'Zustand State', category: 'tooling', color: '#443E38' }
-    ],
-    purchaseLink: 'https://checkout.templestore.dev/pulse',
-    livePreviewUrl: 'https://pulse-preview.templestore.dev',
-    version: '1.2.0',
-    lastUpdated: 'August 2026',
-    author: {
-      name: 'Vanguard Labs',
-      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces',
-      role: 'Mobile UI Specialists'
-    },
-    fileSize: '5.1 MB',
-    includedItems: [
-      'Next.js PWA Web View Codebase',
-      'React Native / Expo Starter Template',
-      'Full Design Tokens & Icon Set',
-      'Sound Effects & Haptic Feedback Config',
-      'Standard Commercial License'
-    ]
-  },
-  {
-    id: 'tpl-004',
-    slug: 'apex-modern-storefront',
-    name: 'Apex Modern E-Commerce',
-    tagline: 'High-conversion headless storefront with instant checkout',
-    category: 'website',
-    price: 89,
-    originalPrice: 149,
-    rating: 4.96,
-    reviewsCount: 52,
-    salesCount: 420,
-    featured: true,
-    badge: 'Best Seller',
-    shortDescription: 'Blazing fast headless e-commerce storefront with slide-out cart drawer, multi-currency switcher, search filtering, and Stripe readiness.',
-    longDescription: `Apex is an enterprise-grade e-commerce template designed to maximize checkout conversion rates. Includes instant product search with fuzzy matching, interactive color & size variant selectors, product review accordion, and a seamless slide-out cart drawer.
-
-Easily connects to Shopify, MedusaJS, Stripe, or custom headless backends.`,
-    features: [
-      'Frictionless slide-out mini-cart with live order total calculation',
-      'Faceted product filtering (size, color, price range, brand)',
-      'Stripe & PayPal payment checkout UI stubs',
-      'Dynamic product variant selector with live image swapping',
-      'Customer reviews and Q&A accordion section',
-      'Discount coupon validator & toast notification system',
-      'Wishlist persistence via local storage',
-      'Optimized Core Web Vitals (sub-50ms interaction latency)'
-    ],
-    detailedFeatures: [
-      {
-        title: 'Optimized Checkout Funnel',
-        description: '1-page checkout UI with address auto-complete and guest checkout option.'
-      },
-      {
-        title: 'Product Zoom & 360 Gallery',
-        description: 'Interactive high-res image zoom and thumbnail carousel.'
-      }
-    ],
-    previewImages: [
-      {
-        url: '/previews/apex-1.svg',
-        alt: 'Apex E-commerce hero banner and product grid',
-        caption: 'Storefront Homepage & Featured Drop'
-      },
-      {
-        url: '/previews/apex-2.svg',
-        alt: 'Apex Product Detail page with variant selector and cart drawer',
-        caption: 'Product Detail & Cart Drawer'
-      },
-      {
-        url: '/previews/apex-3.svg',
-        alt: 'Apex One-page checkout screen with order summary',
-        caption: 'Checkout & Payment Summary'
-      }
-    ],
-    techStack: [
-      { name: 'Next.js 14', category: 'frontend', color: '#000000' },
-      { name: 'TypeScript', category: 'frontend', color: '#3178C6' },
-      { name: 'Tailwind CSS', category: 'styling', color: '#06B6D4' },
-      { name: 'Stripe SDK Ready', category: 'backend', color: '#635BFF' },
-      { name: 'Framer Motion', category: 'styling', color: '#FF0055' }
-    ],
-    purchaseLink: 'https://checkout.templestore.dev/apex',
-    livePreviewUrl: 'https://apex-preview.templestore.dev',
-    version: '3.1.0',
-    lastUpdated: 'November 2026',
-    author: {
-      name: 'Omni Commerce',
-      avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop&crop=faces',
-      role: 'E-commerce Architecture Team'
-    },
-    fileSize: '6.4 MB',
-    includedItems: [
-      'Next.js 14 E-commerce App Router Code',
-      'Cart Drawer & State Management Setup',
-      'Figma Complete UI Kit (30+ Components)',
-      'Mock Product Dataset (50 items)',
-      'Extended Commercial License with Staging Rights'
-    ]
-  },
-  {
-    id: 'tpl-005',
-    slug: 'quickbill-offline-pos',
-    name: 'QuickBill — Offline POS & Billing App',
-    tagline: 'Offline-first POS, billing & receipt generator for retail counters',
+    slug: 'quickbill-cloud-pos',
+    name: 'QuickBill — Modern Cloud POS & Billing App',
+    tagline: 'Cloud-connected POS, billing & receipt generator with multi-device sync',
     category: 'app',
     price: 69,
     originalPrice: 119,
@@ -361,28 +126,29 @@ Easily connects to Shopify, MedusaJS, Stripe, or custom headless backends.`,
     reviewsCount: 41,
     salesCount: 162,
     featured: true,
-    badge: 'Offline POS',
-    shortDescription: 'High-speed offline-first point-of-sale & invoice app with thermal receipt printing (2"/3"), VAT/tax calculation modes, 25 saved items catalog, and instant PDF receipts.',
-    longDescription: `QuickBill POS is an enterprise-grade, offline-first billing and point-of-sale solution engineered for retail shops, cafes, service counters, and small business owners who demand speed, reliability, and zero cloud lock-in.
+    badge: 'Cloud POS',
+    shortDescription: 'Sleek, high-speed cloud point-of-sale & invoice web app with thermal receipt printing (2"/3"), real-time cloud sync, VAT/tax calculation modes, and instant PDF receipts.',
+    longDescription: `QuickBill Cloud POS is a modern, high-speed point-of-sale and billing web application engineered for retail shops, cafes, service counters, and multi-location businesses demanding speed, reliability, and real-time cloud sync.
 
-Built with a local-first architecture powered by Dexie (IndexedDB), QuickBill executes transactions in milliseconds without an active internet connection. It features complete business profile customization (VAT/PAN, header logos, tax IDs), a 25-item quick-pick catalog for high-frequency inventory, real-time flat & percentage discount calculations, and dual VAT/tax handling (disclosed breakdown vs tax included in unit price).
+Built with a sleek, compact interface and local-first caching, QuickBill ensures your checkout counter never skips a beat while syncing sales, catalogs, and customer histories seamlessly across all your devices in real time. It features business profile customization (VAT/PAN, branding, tax rates), an unlimited quick-pick catalog with instant category filtering, real-time flat & percentage discount calculations, and dual VAT/tax handling (full tax breakdown vs tax inclusive pricing).
 
-When it comes to hardware dispatch, QuickBill connects seamlessly to portable Bluetooth thermal receipt printers (2-inch and 3-inch rolls) as well as desktop Wi-Fi / USB network printers for standard A4 and A5 invoice receipts via jsPDF and html2canvas. Ready for cross-platform deployment on Android, iOS (via Capacitor), or any modern desktop browser.`,
+Hardware ready out of the box: QuickBill connects to Bluetooth 58mm/80mm thermal receipt printers and standard desktop printers for instant A4/A5 PDF generation. Fully responsive across desktop, tablet, and smartphone screens.`,
     features: [
-      '100% Offline-First Architecture (Zero cloud reliance, Dexie IndexedDB local database)',
+      'Real-Time Cloud Synchronization (Multi-device access across phone, tablet, and desktop)',
+      'Local-First Cache Resilience (Continues operating smoothly even during network dips)',
       'Dual VAT / Tax Modes (Full breakdown vs Tax included in prices)',
       'Multi-Format Thermal Printing (2-inch & 3-inch receipt rolls + A4/A5 PDF invoices)',
       'Bluetooth & Network Printer Support for POS counter terminals',
-      '25-Item Quick-Pick Catalog for instant line-item addition',
+      'Unlimited Quick-Pick Product Catalog with category pills and live search',
       'Dynamic Real-time Discounts (Flat cash amount or % percentage)',
-      'Searchable Chronological Bill History with reprint, duplicate & delete',
-      'Business Profile Branding (VAT/PAN, custom logo, contact info, customizable headers)',
-      'Cross-Platform Ready: Android APK, iOS (Capacitor 6), and Standalone Web App'
+      'Searchable Bill History with reprint, duplicate & delete',
+      'Business Profile & Stamp Branding (VAT/PAN, custom logo, official seal/stamp, customizable headers)',
+      'Compact, Modern Responsive UI for countertop tablets and mobile phones'
     ],
     detailedFeatures: [
       {
-        title: 'Local-First Dexie Database',
-        description: 'Zero internet latency. All sales, business profiles, and customer receipts stay securely stored on the device.'
+        title: 'Real-Time Cloud Synchronization',
+        description: 'Instant multi-device synchronization. Sales data, catalog items, and billing receipts stay unified across all terminals and managers.'
       },
       {
         title: 'Thermal Receipt & A4 Printing Engine',
@@ -396,7 +162,7 @@ When it comes to hardware dispatch, QuickBill connects seamlessly to portable Bl
     previewImages: [
       {
         url: '/previews/quickbill-web-1.svg',
-        alt: 'QuickBill POS Counter Interface, Tax Calculation & Thermal Roll Preview',
+        alt: 'QuickBill Cloud POS Counter Interface, Tax Calculation & Thermal Roll Preview',
         caption: 'POS Counter — Active Order, VAT Breakdown & Thermal Roll'
       },
       {
@@ -415,7 +181,8 @@ When it comes to hardware dispatch, QuickBill connects seamlessly to portable Bl
       { name: 'Vite', category: 'tooling', color: '#646CFF' },
       { name: 'TypeScript', category: 'frontend', color: '#3178C6' },
       { name: 'Tailwind CSS', category: 'styling', color: '#06B6D4' },
-      { name: 'Dexie / IndexedDB', category: 'database', color: '#10B981' },
+      { name: 'Cloud Sync API', category: 'backend', color: '#10B981' },
+      { name: 'Dexie Local Cache', category: 'database', color: '#8B5CF6' },
       { name: 'Capacitor 6', category: 'tooling', color: '#119EFF' },
       { name: 'jsPDF / Canvas', category: 'tooling', color: '#EF4444' }
     ],
@@ -426,40 +193,42 @@ When it comes to hardware dispatch, QuickBill connects seamlessly to portable Bl
     author: {
       name: 'Sovereign POS Systems',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces',
-      role: 'Retail & Offline POS Architect'
+      role: 'Retail & Cloud POS Architect'
     },
     fileSize: '4.8 MB',
     includedItems: [
       'Full Vite + React 18 + TypeScript Source Code',
       'Capacitor 6 Android & iOS Native Project Scaffold',
       'Standalone Single-File Flat HTML Phone Edition',
-      'Dexie.js IndexedDB Schema & Migration Scripts',
+      'Cloud Synchronization Engine & Schema Scripts',
       'Thermal Receipt & A4 PDF Print Driver Utilities',
-      'Commercial Unlimited Business License',
-      'Lifetime Updates & Free Maintenance'
+      'Single Commercial Business License (12 Deploys/Year)',
+      '1-Year Version Updates & Patch Maintenance'
     ]
   },
   {
-    id: 'tpl-006',
+    id: 'tpl-003',
     slug: 'win-the-day-momentum',
-    name: 'Win the Day — Habit & Momentum Engine',
-    tagline: 'Offline-first 101-point habit scoring, focus timer & momentum tracking PWA',
+    name: 'Win the Day — Cloud Habit & Momentum Engine',
+    tagline: 'Mobile-only habit scoring, real-time cloud sync & daily momentum tracker',
     category: 'mobile',
+    isMobileOnly: true,
     price: 45,
     originalPrice: 79,
     rating: 4.97,
     reviewsCount: 38,
     salesCount: 210,
     featured: true,
-    badge: 'PWA Engine',
-    shortDescription: 'Calibrated 101-point personal productivity system with streak bonuses, Pomodoro focus timer, 3L water logger, and GitHub-style consistency matrix.',
-    longDescription: `Win the Day is a zero-friction, offline-first personal productivity and habit execution system engineered to eliminate decision fatigue, enforce discipline with a calibrated 101-point scoring formula, and maintain unstoppable daily momentum.
+    badge: 'Mobile App',
+    shortDescription: 'Calibrated 101-point personal productivity mobile app with instant cloud sync, streak bonuses, Pomodoro focus timer, and consistency heatmap matrix.',
+    longDescription: `Win the Day is an online mobile personal productivity and habit execution app engineered to eliminate decision fatigue, enforce discipline with a calibrated 101-point scoring formula, and maintain unstoppable daily momentum directly on your smartphone.
 
-Modeled after modern luxury wellness apps like Bend and Gentler Streak, Win the Day operates on a balanced daily scorecard: 100 base task points + 1 bonus point awarded for consecutive winning streaks. The routine intelligently highlights tasks based on the time of day (Morning Routine → Day Health & Fitness → Deep Work → Evening Wind-Down) with strict accountability penalties (-5 points per missed essential task).
+Modeled after modern luxury wellness apps like Bend and Gentler Streak, Win the Day synchronizes seamlessly to the cloud while keeping you focused on what matters: 100 base task points + 1 bonus point awarded for consecutive winning streaks. The routine intelligently highlights tasks based on the time of day (Morning Routine → Day Health & Fitness → Deep Work → Evening Wind-Down) with strict accountability penalties (-5 points per missed essential task).
 
-Packed with interactive utilities including a 60-minute background-resilient Pomodoro companion, an interactive 6 x 500ml quick-tap water logger, automated gym rest-day credit logic, and an intelligent 3:00 AM rollover rule that protects night owls and late shifts. Features a 16-week GitHub-style consistency heatmap visualizing your performance tiers. Zero accounts, zero tracking, sub-100ms loading, and 100% offline sovereignty installable straight to your iPhone or Android home screen.`,
+Packed with interactive utilities including a 60-minute background-resilient Pomodoro companion, an interactive 6 x 500ml quick-tap water logger, automated gym rest-day credit logic, and an intelligent 3:00 AM rollover rule that protects night owls and late shifts. Features a 16-week consistency heatmap visualizing your performance tiers, designed exclusively for iOS and Android smartphone screens.`,
     features: [
-      '100% Offline-First & Private (No logins, no analytics, sub-100ms load time)',
+      'Mobile Cloud Sync (Real-time synchronization across iOS & Android smartphones)',
+      'Offline-Resilient Local Caching (Automatic background sync whenever reconnected)',
       'Calibrated 101-Point Daily Formula (100 base + 1 streak bonus)',
       'Time-Contextual Routine (Auto-highlights Morning, Health, Deep Work, and Evening)',
       '60-Minute Focus Companion Timer with background resilience & audio fanfare',
@@ -467,8 +236,7 @@ Packed with interactive utilities including a 60-minute background-resilient Pom
       '16-Week GitHub-Style Consistency Matrix & Performance Heatmap',
       'Gym Rest-Day Logic (Planned recovery days are credited automatically)',
       'Intelligent 3:00 AM Rollover (Protects night owls and irregular sleep routines)',
-      'PWA Ready: 1-Tap Add to Home Screen on iOS Safari & Android Chrome',
-      'Data Sovereignty: 1-Tap Full JSON Backup Export & Instant Restore'
+      'Native-Feel Mobile PWA: Designed exclusively for mobile devices with haptic feedback & touch gestures'
     ],
     detailedFeatures: [
       {
@@ -492,17 +260,17 @@ Packed with interactive utilities including a 60-minute background-resilient Pom
       },
       {
         url: '/previews/win-the-day-2.svg',
-        alt: 'Win the Day Hydration Logger, Macro Intakes and Offline Architecture',
-        caption: 'Sovereign Architecture — 3L Water Logger & Zero-Cloud Offline Cache'
+        alt: 'Win the Day Hydration Logger, Macro Intakes and Cloud Sync Architecture',
+        caption: 'Cloud Architecture — 3L Water Logger & Multi-Device Sync'
       }
     ],
     techStack: [
       { name: 'HTML5 / Modern JS', category: 'frontend', color: '#F7DF1E' },
-      { name: 'PWA / Service Worker', category: 'tooling', color: '#5A0FC8' },
+      { name: 'Cloud Sync API', category: 'backend', color: '#10B981' },
       { name: 'CSS3 Glassmorphism', category: 'styling', color: '#38BDF8' },
-      { name: 'Web Audio API', category: 'tooling', color: '#10B981' },
-      { name: 'LocalStorage Engine', category: 'database', color: '#F59E0B' },
-      { name: 'Lucide SVG Icons', category: 'styling', color: '#EC4899' }
+      { name: 'PWA / Service Worker', category: 'tooling', color: '#5A0FC8' },
+      { name: 'Web Audio API', category: 'tooling', color: '#EC4899' },
+      { name: 'Lucide SVG Icons', category: 'styling', color: '#6366F1' }
     ],
     purchaseLink: 'https://checkout.templestore.dev/win-the-day',
     livePreviewUrl: '/demos/win-the-day.html',
@@ -520,8 +288,8 @@ Packed with interactive utilities including a 60-minute background-resilient Pom
       'PWA Service Worker & Manifest Configuration',
       'Synthesized Web Audio Haptic & Sound Modules',
       'JSON Backup & Restore Data Engine',
-      'Extended Commercial & Personal Use License',
-      'Lifetime Updates & Roadmap Access'
+      'Extended Commercial & Personal Use License (12 Deploys/Year)',
+      '1-Year Version Updates & Roadmap Access'
     ]
   }
 ];

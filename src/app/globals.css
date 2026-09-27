@@ -95,4 +95,18 @@ body {
   scrollbar-width: none;
 }
 
+/* Subtle default drop shadow and smooth hover transitions for all interactive buttons */
+@layer base {
+  button:not(:disabled) {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .dark button:not(:disabled) {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
 

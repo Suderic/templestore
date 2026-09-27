@@ -17,6 +17,7 @@ export interface Template {
   name: string;
   tagline: string;
   category: 'website' | 'app' | 'mobile' | 'saas';
+  isMobileOnly?: boolean;
   price: number;
   originalPrice?: number;
   rating: number;

@@ -61,18 +61,18 @@ export function TemplateCard({ template, priority = false }: TemplateCardProps) 
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             {template.livePreviewUrl ? (
               <Link
-                href={template.livePreviewUrl}
+                href={template.category === 'website' ? template.livePreviewUrl : `/templates/${template.slug}#preview-gallery`}
                 className="px-3 py-1.5 rounded-xl glass-panel bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white border border-white/60 dark:border-white/20 text-xs font-semibold shadow-xl hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md pointer-events-auto"
-                title="Launch Live Demo"
+                title={template.category === 'website' ? "Launch Live Demo" : "Try Interactive Preview"}
               >
                 <Compass className="w-3.5 h-3.5 text-indigo-500" />
-                <span>Live Demo</span>
+                <span>{template.category === 'website' ? "Live Demo" : "Interactive Preview"}</span>
               </Link>
             ) : <div />}
 
             <button
               onClick={() => setIsQrModalOpen(true)}
-              className="px-3 py-1.5 rounded-xl glass-panel bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white border border-white/60 dark:border-white/20 text-xs font-semibold shadow-xl hover:scale-105 transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md pointer-events-auto"
+              className="px-3 py-1.5 rounded-xl glass-panel bg-white/95 dark:bg-slate-900/95 text-slate-900 dark:text-white border border-white/60 dark:border-white/20 text-xs font-semibold shadow-md shadow-black/10 dark:shadow-black/40 hover:shadow-lg hover:border-amber-500/40 hover:scale-105 hover:brightness-105 transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md pointer-events-auto"
               title="Quick QR Payment"
             >
               <QrLuxury className="w-4 h-4 text-amber-500 shrink-0" />
@@ -147,9 +147,9 @@ export function TemplateCard({ template, priority = false }: TemplateCardProps) 
             <div className="flex items-center gap-1.5">
               {template.livePreviewUrl && (
                 <Link
-                  href={template.livePreviewUrl}
-                  className="p-2 rounded-xl glass-panel text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 border border-white/40 dark:border-white/10 hover:border-indigo-500/30 transition-all cursor-pointer hover:scale-105 active:scale-95"
-                  title="View Live Demo"
+                  href={template.category === 'website' ? template.livePreviewUrl : `/templates/${template.slug}#preview-gallery`}
+                  className="p-2 rounded-xl glass-panel text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 border border-white/40 dark:border-white/10 hover:border-indigo-500/30 shadow-sm hover:shadow-md hover:brightness-105 transition-all cursor-pointer hover:scale-105 active:scale-95"
+                  title={template.category === 'website' ? "View Live Demo" : "Try Interactive Preview"}
                 >
                   <Compass className="w-4 h-4" />
                 </Link>
@@ -157,7 +157,7 @@ export function TemplateCard({ template, priority = false }: TemplateCardProps) 
 
               <button
                 onClick={() => setIsQrModalOpen(true)}
-                className="p-2 rounded-xl glass-panel text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-400 border border-white/40 dark:border-white/10 hover:border-amber-500/30 transition-all cursor-pointer hover:scale-105 active:scale-95"
+                className="p-2 rounded-xl glass-panel text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-400 border border-white/40 dark:border-white/10 hover:border-amber-500/30 shadow-sm hover:shadow-md hover:brightness-105 transition-all cursor-pointer hover:scale-105 active:scale-95"
                 title="Purchase via QR Code"
               >
                 <QrLuxury className="w-4 h-4" />

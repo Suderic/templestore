@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Templestore — Premium App & Website Template Marketplace',
   description:
-    'Curated, production-grade Next.js and React templates with instant QR code purchasing, glassmorphic UI, and lifetime updates.',
+    'Curated, production-grade Next.js and React templates with instant QR code purchasing, glassmorphic UI, and 1 year of free updates.',
   keywords: ['Next.js templates', 'React marketplace', 'QR code purchasing', 'Glassmorphism', 'SaaS boilerplate'],
 };
 

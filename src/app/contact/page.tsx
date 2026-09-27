@@ -272,7 +272,7 @@ function ContactFormContent() {
                   <span className="text-slate-400 group-open:rotate-90 transition-transform">›</span>
                 </summary>
                 <p className="mt-2 text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
-                  Yes, all our templates include an unlimited commercial license permitting client work and SaaS application deployment.
+                  Yes! All our templates include a commercial license with 12 deployments included for the first year (1 deployment per month) plus full source code access.
                 </p>
               </details>
             </div>

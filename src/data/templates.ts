@@ -291,6 +291,93 @@ Packed with interactive utilities including a 60-minute background-resilient Pom
       'Extended Commercial & Personal Use License (12 Deploys/Year)',
       '1-Year Version Updates & Roadmap Access'
     ]
+  },
+  {
+    id: 'tpl-004',
+    slug: 'galaxy-homeware',
+    name: 'Buyo — Modern Living & Home Store',
+    tagline: 'Catchy, 1-word designer furniture, architectural lighting, acoustics & lifestyle e-commerce template',
+    category: 'website',
+    price: 99,
+    originalPrice: 159,
+    rating: 4.98,
+    reviewsCount: 52,
+    salesCount: 178,
+    featured: true,
+    badge: 'Modern Living',
+    shortDescription: 'Complete lifestyle e-commerce template for designer furniture, architectural lighting, audiophile sound, ceramics, and textiles with translucent glass drawers and room ambiance studio.',
+    longDescription: `Buyo is a complete, production-grade modern luxury home and living e-commerce website template designed for contemporary furniture brands, lighting studios, boutique home goods, and lifestyle retailers. Combining ethereal frosted glassmorphism with tactile, high-converting shopping flows, Buyo sets a new standard for modern digital commerce.
+
+Features a full-fledged e-commerce system: translucent slide-over shopping bag with dynamic free-shipping meter and promo engine, quick-view product customization with live material & timber swatch preview, room ambiance simulator (Morning Sun, Nordic Day, Golden Hour), acoustic soundstage preview, global instant search with keyboard shortcuts (⌘K / Esc), moodboard wishlist drawer, 3-step express checkout modal with room-of-choice white-glove delivery, and a floating live concierge styling widget.`,
+    features: [
+      'Full-Fledged E-Commerce Architecture (Shopping Cart, Slide-Over Drawers, Wishlist, Express Checkout)',
+      '5 Distinct Multi-Department Categories (Furniture, Architectural Lighting, Audio Tech, Ceramics, Textiles)',
+      'Translucent Glassmorphism Design System (Frosted glass popups, menus, and modals with backdrop-blur)',
+      'Interactive Living Room Ambiance Studio (Switch lighting temperatures & room arrangements)',
+      'Acoustic Soundstage & Material Swatch Switcher (Oak, Bouclé, Smoked Walnut, Brushed Brass)',
+      'Instant Global Search Overlay with live keyword filtering and popular suggestion pills',
+      'Dynamic Free-Shipping Progress Bar ($150 threshold with automated calculations)',
+      'Quick-View Product Customizer with real-time price delta and set option selectors',
+      'White-Glove In-Home Delivery, 10-Year Craftsmanship Guarantee & FSC Certification Badges',
+      '100% Mobile & Tablet Responsive with Compact Docked Navigation Bar'
+    ],
+    detailedFeatures: [
+      {
+        title: 'Full E-Commerce Drawer & Modal Engine',
+        description: 'Translucent frosted glass shopping cart, wishlist drawer, quick view modal, and checkout modal with order confirmation.'
+      },
+      {
+        title: 'Living Room Ambiance & Lighting Studio',
+        description: 'Interactive room scene configurator with real-time color temperature simulations (Morning Sun 3000K, Nordic Day 4500K, Evening Glow 2700K).'
+      },
+      {
+        title: 'Multi-Department Catalog & Material Swatches',
+        description: 'Curated products across furniture, lighting, audio tech, ceramics, and textiles with tactile material swatches and size pickers.'
+      }
+    ],
+    previewImages: [
+      {
+        url: '/previews/galaxy-web-1.svg',
+        alt: 'Buyo Modern Living E-Commerce Website Homepage & Hero Section',
+        caption: 'Homepage — Ambient Living Hero & Department Overview'
+      },
+      {
+        url: '/previews/galaxy-web-2.svg',
+        alt: 'Buyo Multi-Department Product Catalog & Material Swatches',
+        caption: 'Catalog — Department Filtering & Multi-Material Swatches'
+      },
+      {
+        url: '/previews/galaxy-web-3.svg',
+        alt: 'Buyo Translucent Shopping Cart Drawer & Quick View Modal',
+        caption: 'E-Commerce System — Translucent Cart Drawer & Quick View'
+      }
+    ],
+    techStack: [
+      { name: 'Next.js 16 (App Router)', category: 'frontend', color: '#000000' },
+      { name: 'Tailwind CSS', category: 'styling', color: '#38BDF8' },
+      { name: 'TypeScript', category: 'frontend', color: '#3178C6' },
+      { name: 'Frosted Glassmorphism', category: 'styling', color: '#6366F1' },
+      { name: 'Lucide Icons', category: 'styling', color: '#F59E0B' },
+      { name: 'Reactive Cart State', category: 'frontend', color: '#10B981' }
+    ],
+    purchaseLink: 'https://checkout.templestore.dev/galaxy-homeware',
+    livePreviewUrl: '/demo/galaxy-homeware',
+    version: '1.0.0',
+    lastUpdated: 'September 2026',
+    author: {
+      name: 'Buyo Design Lab',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces',
+      role: 'Lifestyle Commerce Architects'
+    },
+    fileSize: '5.8 MB',
+    includedItems: [
+      'Complete Next.js App Router E-Commerce Source Code',
+      'Translucent Shopping Cart & Checkout System',
+      'Interactive Room Ambiance Studio & Swatch Customizer',
+      'Curated Multi-Department Product Catalog & Specs',
+      'Responsive Mobile & Tablet Viewport Framework',
+      'Extended Commercial License with Lifetime Updates'
+    ]
   }
 ];
 

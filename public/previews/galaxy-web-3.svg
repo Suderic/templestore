@@ -1,0 +1,108 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgCart" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bgCart)"/>
+
+  <!-- Left: Quick View Modal Mockup -->
+  <g transform="translate(60, 50)">
+    <rect width="600" height="650" rx="32" fill="rgba(15,23,42,0.95)" stroke="rgba(255,255,255,0.15)"/>
+    <text x="35" y="50" fill="#F59E0B" font-size="11" font-family="system-ui, sans-serif" font-weight="700" letter-spacing="2">QUICK SPECIFICATION &amp; FINISH SELECTOR</text>
+    <text x="35" y="80" fill="#FFFFFF" font-size="22" font-family="system-ui, sans-serif" font-weight="900">Koto Sculptural Lounge Chair</text>
+    
+    <!-- Image Stage -->
+    <rect x="35" y="110" width="260" height="300" rx="20" fill="#0B132B" stroke="#F59E0B" stroke-width="1.5"/>
+    <rect x="75" y="180" width="180" height="130" rx="16" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <circle cx="165" cy="235" r="45" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+    <!-- Room Ambiance simulation toggle -->
+    <rect x="35" y="425" width="260" height="34" rx="10" fill="rgba(255,255,255,0.06)"/>
+    <rect x="120" y="428" width="85" height="28" rx="8" fill="#F59E0B"/>
+    <text x="75" y="446" fill="#94A3B8" font-size="10" font-family="system-ui, sans-serif" font-weight="700" text-anchor="middle">3000K</text>
+    <text x="162" y="446" fill="#020617" font-size="10" font-family="system-ui, sans-serif" font-weight="800" text-anchor="middle">4500K Day</text>
+    <text x="250" y="446" fill="#94A3B8" font-size="10" font-family="system-ui, sans-serif" font-weight="700" text-anchor="middle">2700K Glow</text>
+
+    <!-- Details Column on Right of Modal -->
+    <g transform="translate(320, 110)">
+      <rect width="245" height="60" rx="14" fill="rgba(255,255,255,0.05)"/>
+      <text x="15" y="28" fill="#94A3B8" font-size="10" font-family="system-ui, sans-serif">Curated Atelier Price</text>
+      <text x="15" y="50" fill="#FFFFFF" font-size="20" font-family="system-ui, sans-serif" font-weight="900">$1,850 USD</text>
+      
+      <text x="0" y="100" fill="#FFFFFF" font-size="12" font-family="system-ui, sans-serif" font-weight="700">Select Dimensions:</text>
+      <rect x="0" y="112" width="115" height="36" rx="10" fill="rgba(245,158,11,0.15)" stroke="#F59E0B"/>
+      <text x="12" y="134" fill="#F59E0B" font-size="10" font-family="system-ui, sans-serif" font-weight="700">Standard Club</text>
+      
+      <rect x="125" y="112" width="120" height="36" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="137" y="134" fill="#E2E8F0" font-size="10" font-family="system-ui, sans-serif" font-weight="600">Grand Lounge (+$300)</text>
+
+      <text x="0" y="175" fill="#FFFFFF" font-size="12" font-family="system-ui, sans-serif" font-weight="700">Tactile Upholstery:</text>
+      <circle cx="12" cy="195" r="9" fill="#F4EBD9" stroke="#F59E0B" stroke-width="2"/>
+      <circle cx="36" cy="195" r="9" fill="#292524"/>
+      <circle cx="60" cy="195" r="9" fill="#D6C7B2"/>
+
+      <rect x="0" y="240" width="245" height="46" rx="16" fill="#F59E0B"/>
+      <text x="122" y="268" fill="#020617" font-size="13" font-family="system-ui, sans-serif" font-weight="900" text-anchor="middle">Add to Shopping Cart</text>
+    </g>
+
+    <!-- Bottom Specs Pill -->
+    <rect x="35" y="490" width="530" height="120" rx="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="60" y="525" fill="#10B981" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ FSC Certified Kiln-Dried Solid Ash Frame</text>
+    <text x="60" y="550" fill="#10B981" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ 50,000 Martindale High-Durability Bouclé</text>
+    <text x="60" y="575" fill="#10B981" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ White-Glove In-Home Placement &amp; Packaging Removal</text>
+    <text x="340" y="525" fill="#F59E0B" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ 10-Year Craftsmanship Warranty</text>
+    <text x="340" y="550" fill="#F59E0B" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ 30-Day In-Home Trial</text>
+    <text x="340" y="575" fill="#F59E0B" font-size="11" font-family="system-ui, sans-serif" font-weight="700">✓ Complimentary Timber Swatch Kit</text>
+  </g>
+
+  <!-- Right: Translucent Slide-over Cart Drawer Mockup -->
+  <g transform="translate(710, 50)">
+    <rect width="430" height="650" rx="32" fill="rgba(15,23,42,0.9)" stroke="rgba(255,255,255,0.15)"/>
+    
+    <text x="35" y="50" fill="#FFFFFF" font-size="18" font-family="system-ui, sans-serif" font-weight="900">Your Living Cart</text>
+    <rect x="200" y="34" width="28" height="22" rx="11" fill="rgba(245,158,11,0.2)"/>
+    <text x="214" y="49" fill="#F59E0B" font-size="10" font-family="system-ui, sans-serif" font-weight="800" text-anchor="middle">1</text>
+
+    <!-- Free shipping meter -->
+    <rect x="35" y="75" width="360" height="50" rx="14" fill="rgba(255,255,255,0.05)"/>
+    <text x="50" y="98" fill="#10B981" font-size="11" font-family="system-ui, sans-serif" font-weight="700">🎉 Free White-Glove In-Home Assembly Unlocked!</text>
+    <rect x="50" y="108" width="330" height="6" rx="3" fill="#10B981"/>
+
+    <!-- Cart Item 1 -->
+    <g transform="translate(35, 145)">
+      <rect width="360" height="100" rx="16" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+      <rect x="12" y="12" width="76" height="76" rx="12" fill="#0B132B" stroke="#F59E0B"/>
+      <text x="100" y="35" fill="#FFFFFF" font-size="13" font-family="system-ui, sans-serif" font-weight="800">Koto Sculptural Lounge Chair</text>
+      <text x="100" y="52" fill="#94A3B8" font-size="11" font-family="system-ui, sans-serif">Ivory Bouclé • Standard Club</text>
+      <text x="100" y="78" fill="#FFFFFF" font-size="15" font-family="system-ui, sans-serif" font-weight="900">$1,850 USD</text>
+      
+      <!-- Quantity badge -->
+      <rect x="280" y="60" width="70" height="26" rx="8" fill="rgba(255,255,255,0.1)"/>
+      <text x="315" y="77" fill="#FFFFFF" font-size="11" font-family="system-ui, sans-serif" font-weight="700" text-anchor="middle">-  1  +</text>
+    </g>
+
+    <!-- Checkout Summary Area -->
+    <g transform="translate(35, 420)">
+      <line x1="0" y1="0" x2="360" y2="0" stroke="rgba(255,255,255,0.1)"/>
+      <text x="0" y="30" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif">Subtotal</text>
+      <text x="360" y="30" fill="#FFFFFF" font-size="12" font-family="system-ui, sans-serif" font-weight="700" text-anchor="end">$1,850 USD</text>
+
+      <text x="0" y="55" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif">White-Glove In-Home Assembly</text>
+      <text x="360" y="55" fill="#10B981" font-size="12" font-family="system-ui, sans-serif" font-weight="700" text-anchor="end">FREE</text>
+
+      <text x="0" y="80" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif">10-Year Craft Guarantee</text>
+      <text x="360" y="80" fill="#F59E0B" font-size="12" font-family="system-ui, sans-serif" font-weight="700" text-anchor="end">INCLUDED</text>
+
+      <line x1="0" y1="100" x2="360" y2="100" stroke="rgba(255,255,255,0.1)"/>
+
+      <text x="0" y="130" fill="#FFFFFF" font-size="14" font-family="system-ui, sans-serif" font-weight="800">Total</text>
+      <text x="360" y="130" fill="#F59E0B" font-size="20" font-family="system-ui, sans-serif" font-weight="900" text-anchor="end">$1,850 USD</text>
+
+      <rect x="0" y="150" width="360" height="50" rx="20" fill="#F59E0B"/>
+      <text x="180" y="181" fill="#020617" font-size="14" font-family="system-ui, sans-serif" font-weight="900" text-anchor="middle">Proceed to Express Checkout →</text>
+    </g>
+  </g>
+</svg>
